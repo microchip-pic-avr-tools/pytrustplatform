@@ -1,0 +1,12 @@
+# External packages
+cryptography
+asn1crypto
+pytz
+pyyaml
+appdirs
+pyserial
+python-jose[cryptography]
+
+# Microchip packages
+pykitcommander>=2.7*
+pyedbglib>=2.22.*

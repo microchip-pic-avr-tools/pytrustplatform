@@ -1,0 +1,478 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>pytrustplatform documentation &#8212; pytrustplatform  documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/microchip.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="pytrustplatform package" href="pytrustplatform.html" /> 
+  </head><body>
+    <header>
+        <div class="logo">
+            <a href="https://microchip.com" target="_blank">
+                <img src="_static/microchip.png" />
+            </a>
+        </div>
+    </header>
+
+    <div class="related-wrapper">
+        
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="pytrustplatform.html" title="pytrustplatform package"
+             accesskey="N">next</a> |</li>
+        <li class="nav-item nav-item-0"><a href="#">pytrustplatform  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">pytrustplatform documentation</a></li> 
+      </ul>
+    </div>
+    </div>
+
+    <div class="document">
+        
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="#">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">pytrustplatform documentation</a><ul>
+<li><a class="reference internal" href="#python-trust-platform-utilities">Python Trust Platform utilities</a></li>
+<li><a class="reference internal" href="#overview">Overview</a></li>
+<li><a class="reference internal" href="#fetching-data-from-a-certificate">Fetching data from a certificate</a></li>
+<li><a class="reference internal" href="#create-device-certificate-and-csr">Create device certificate and CSR</a></li>
+<li><a class="reference internal" href="#create-device-and-signer-certificate-from-ecc-data">Create device and signer certificate from ECC data</a></li>
+<li><a class="reference internal" href="#create-verification-certificate">Create verification certificate</a></li>
+<li><a class="reference internal" href="#create-chain-of-trust">Create chain of trust</a></li>
+<li><a class="reference internal" href="#logging">Logging</a></li>
+<li><a class="reference internal" href="#dependencies">Dependencies</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="pytrustplatform.html"
+                          title="next chapter">pytrustplatform package</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/index.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+        <div class="documentwrapper">
+            <div class="bodywrapper">
+                <div class="body" role="main">
+                    
+  <section id="pytrustplatform-documentation">
+<h1>pytrustplatform documentation<a class="headerlink" href="#pytrustplatform-documentation" title="Permalink to this heading">¶</a></h1>
+<section id="python-trust-platform-utilities">
+<h2>Python Trust Platform utilities<a class="headerlink" href="#python-trust-platform-utilities" title="Permalink to this heading">¶</a></h2>
+<p>pytrustplatform is a collection of utilities for interacting with Microchip
+Trust Platform and Microchip CryptoAuthentication(TM) devices</p>
+</section>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">¶</a></h2>
+<dl class="simple">
+<dt>pytrustplatform is available:</dt><dd><ul class="simple">
+<li><p>install using pip from pypi: <a class="reference external" href="https://pypi.org/project/pytrustplatform">https://pypi.org/project/pytrustplatform</a></p></li>
+<li><p>browse source code on github: <a class="reference external" href="https://github.com/microchip-pic-avr-tools/pytrustplatform">https://github.com/microchip-pic-avr-tools/pytrustplatform</a></p></li>
+<li><p>read API documentation on github: <a class="reference external" href="https://microchip-pic-avr-tools.github.io/pytrustplatform">https://microchip-pic-avr-tools.github.io/pytrustplatform</a></p></li>
+<li><p>read the changelog on github: <a class="reference external" href="https://github.com/microchip-pic-avr-tools/pytrustplatform/blob/main/CHANGELOG.md">https://github.com/microchip-pic-avr-tools/pytrustplatform/blob/main/CHANGELOG.md</a></p></li>
+</ul>
+</dd>
+</dl>
+</section>
+<section id="fetching-data-from-a-certificate">
+<h2>Fetching data from a certificate<a class="headerlink" href="#fetching-data-from-a-certificate" title="Permalink to this heading">¶</a></h2>
+<p>The cert_get_data module contains functions to fetch various information from
+a certificate.</p>
+<p>Fetch the Subject Key Identifier from a certificate</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pytrustplatform.cert_get_data</span> <span class="kn">import</span> <span class="n">cert_get_skid</span>
+<span class="n">skid</span> <span class="o">=</span> <span class="n">cert_get_skid</span><span class="p">(</span><span class="s2">&quot;mycertificate.crt&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Fetch Common Name from a certificate:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pytrustplatform.cert_get_data</span> <span class="kn">import</span> <span class="n">cert_get_common_name</span>
+<span class="n">common_name</span> <span class="o">=</span> <span class="n">cert_get_common_name</span><span class="p">(</span><span class="s2">&quot;mycertificate.crt&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Create Fingerprint from a certificate:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pytrustplatform.cert_get_data</span> <span class="kn">import</span> <span class="n">create_cert_fingerprint</span>
+<span class="n">fingerprint</span> <span class="o">=</span> <span class="n">create_cert_fingerprint</span><span class="p">(</span><span class="s2">&quot;mycertificate.crt&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="create-device-certificate-and-csr">
+<h2>Create device certificate and CSR<a class="headerlink" href="#create-device-certificate-and-csr" title="Permalink to this heading">¶</a></h2>
+<p>The device_cert_builder module contains functions to create device certificates
+and Certificate Signing Requests (CSR) for a connected Microchip IoT kit.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ask pykitcommander to setup the kit with the appropriate firmware</span>
+<span class="kn">from</span> <span class="nn">pykitcommander.kitprotocols</span> <span class="kn">import</span> <span class="n">setup_kit</span>
+<span class="n">info</span> <span class="o">=</span> <span class="n">setup_kit</span><span class="p">(</span><span class="s1">&#39;iotprovision&#39;</span><span class="p">)</span>
+
+<span class="c1"># Collect required info to continue:</span>
+<span class="n">port</span> <span class="o">=</span> <span class="n">info</span><span class="p">[</span><span class="s1">&#39;port&#39;</span><span class="p">]</span>
+<span class="n">baud</span> <span class="o">=</span> <span class="n">info</span><span class="p">[</span><span class="s1">&#39;protocol_baud&#39;</span><span class="p">]</span>
+<span class="n">protocol</span> <span class="o">=</span> <span class="n">info</span><span class="p">[</span><span class="s1">&#39;protocol_class&#39;</span><span class="p">]</span>
+
+<span class="c1"># Build the device certificate.  A CSR will be generated as part of the process.</span>
+<span class="c1"># Both will be written to file.  The serial port connection uses pyserial, in a</span>
+<span class="c1"># context manager to ensure the port is closed after use</span>
+<span class="kn">from</span> <span class="nn">serial</span> <span class="kn">import</span> <span class="n">Serial</span>
+<span class="k">with</span> <span class="n">Serial</span><span class="p">(</span><span class="n">port</span><span class="o">=</span><span class="n">port</span><span class="p">,</span> <span class="n">baudrate</span><span class="o">=</span><span class="n">baud</span><span class="p">)</span> <span class="k">as</span> <span class="n">serial_connection</span><span class="p">:</span>
+    <span class="n">firmware_driver</span> <span class="o">=</span> <span class="n">protocol</span><span class="p">(</span><span class="n">serial_connection</span><span class="p">)</span>
+    <span class="kn">from</span> <span class="nn">pytrustplatform.device_cert_builder</span> <span class="kn">import</span> <span class="n">build_device_cert</span>
+    <span class="n">device_cert</span> <span class="o">=</span> <span class="n">build_device_cert</span><span class="p">(</span><span class="n">firmware_driver</span><span class="p">,</span>
+                                    <span class="s2">&quot;my_signer-ca.crt&quot;</span><span class="p">,</span>
+                                    <span class="s2">&quot;my_signer-ca.key&quot;</span><span class="p">,</span>
+                                    <span class="s2">&quot;generated.csr&quot;</span><span class="p">,</span>
+                                    <span class="s2">&quot;generated_device.crt&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="create-device-and-signer-certificate-from-ecc-data">
+<h2>Create device and signer certificate from ECC data<a class="headerlink" href="#create-device-and-signer-certificate-from-ecc-data" title="Permalink to this heading">¶</a></h2>
+<p>The ecc_cert_builder module contains functions to create device certificates
+and signer certificates from data collected from an ECC device of a connected
+Microchip IoT kit.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ask pykitcommander to setup the kit with the appropriate firmware</span>
+<span class="kn">from</span> <span class="nn">pykitcommander.kitprotocols</span> <span class="kn">import</span> <span class="n">setup_kit</span>
+<span class="n">info</span> <span class="o">=</span> <span class="n">setup_kit</span><span class="p">(</span><span class="s1">&#39;iotprovision&#39;</span><span class="p">)</span>
+
+<span class="c1"># Collect required info to continue:</span>
+<span class="n">port</span> <span class="o">=</span> <span class="n">info</span><span class="p">[</span><span class="s1">&#39;port&#39;</span><span class="p">]</span>
+<span class="n">baud</span> <span class="o">=</span> <span class="n">info</span><span class="p">[</span><span class="s1">&#39;protocol_baud&#39;</span><span class="p">]</span>
+<span class="n">protocol</span> <span class="o">=</span> <span class="n">info</span><span class="p">[</span><span class="s1">&#39;protocol_class&#39;</span><span class="p">]</span>
+
+<span class="c1"># Build the device certificate and signer certificate.  Both will be written to file.</span>
+<span class="c1"># The serial port connection uses pyserial, in a context manager to ensure the port is</span>
+<span class="c1"># closed after use</span>
+<span class="kn">from</span> <span class="nn">serial</span> <span class="kn">import</span> <span class="n">Serial</span>
+<span class="k">with</span> <span class="n">Serial</span><span class="p">(</span><span class="n">port</span><span class="o">=</span><span class="n">port</span><span class="p">,</span> <span class="n">baudrate</span><span class="o">=</span><span class="n">baud</span><span class="p">)</span> <span class="k">as</span> <span class="n">serial_connection</span><span class="p">:</span>
+    <span class="n">firmware_driver</span> <span class="o">=</span> <span class="n">protocol</span><span class="p">(</span><span class="n">serial_connection</span><span class="p">)</span>
+    <span class="kn">from</span> <span class="nn">pytrustplatform.ecc_cert_builder</span> <span class="kn">import</span> <span class="n">build_certs_from_ecc</span>
+    <span class="n">ecc_device_cert</span><span class="p">,</span> <span class="n">ecc_signer_cert</span> <span class="o">=</span> <span class="n">build_certs_from_ecc</span><span class="p">(</span><span class="n">firmware_driver</span><span class="p">,</span>
+                                                            <span class="s2">&quot;generated_signer.crt&quot;</span><span class="p">,</span>
+                                                            <span class="s2">&quot;generated_device.crt&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="create-verification-certificate">
+<h2>Create verification certificate<a class="headerlink" href="#create-verification-certificate" title="Permalink to this heading">¶</a></h2>
+<p>The verification_cert_builder module contains a function to create verification
+certificates.  A verification certificate is typically used when registering a
+Certificate Authority (CA) with a cloud provider.</p>
+<p>Create a verification certificate from a signer CA certificate and private key</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pytrustplatform.verification_cert_builder</span> <span class="kn">import</span> <span class="n">build_verification_cert</span>
+<span class="n">verification_cert</span> <span class="o">=</span> <span class="n">build_verification_cert</span><span class="p">(</span><span class="s2">&quot;my_signer-ca.crt&quot;</span><span class="p">,</span>
+                                            <span class="s2">&quot;my_signer-ca.key&quot;</span><span class="p">,</span>
+                                            <span class="s2">&quot;MY_REGCODE_0123456789&quot;</span><span class="p">,</span>
+                                            <span class="s2">&quot;generated_verification.crt&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="create-chain-of-trust">
+<h2>Create chain of trust<a class="headerlink" href="#create-chain-of-trust" title="Permalink to this heading">¶</a></h2>
+<p>The ca_create module contains functions to create a chain of trust.  Keys can be generated or already
+existing keys can be provided</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pytrustplatform.ca_create</span> <span class="kn">import</span> <span class="n">ca_create_root</span><span class="p">,</span> <span class="n">ca_create_signer_csr</span><span class="p">,</span> <span class="n">ca_create_signer</span>
+
+<span class="c1"># Create Root, generates root private key (if it does not exist) and root certificate</span>
+<span class="n">ca_create_root</span><span class="p">(</span><span class="s2">&quot;generated_root.key&quot;</span><span class="p">,</span> <span class="s2">&quot;generated_root.crt&quot;</span><span class="p">)</span>
+
+<span class="c1"># Create signer CA CSR and signer CA private key (if it does not exist)</span>
+<span class="n">ca_create_signer_csr</span><span class="p">(</span><span class="s2">&quot;generated_signer_ca.key&quot;</span><span class="p">,</span> <span class="s2">&quot;generated_signer_ca.csr&quot;</span><span class="p">)</span>
+
+<span class="c1"># Create signer certificate based on previously generated root key, root certificate and signer CSR</span>
+<span class="n">ca_create_signer</span><span class="p">(</span><span class="s2">&quot;generated_signer_ca.csr&quot;</span><span class="p">,</span>
+                 <span class="s2">&quot;generated_signer_ca.crt&quot;</span><span class="p">,</span>
+                 <span class="s2">&quot;generated_root.key&quot;</span><span class="p">,</span>
+                 <span class="s2">&quot;generated_root.crt&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="logging">
+<h2>Logging<a class="headerlink" href="#logging" title="Permalink to this heading">¶</a></h2>
+<p>This package uses the Python logging module for publishing log messages to
+library users.  A basic configuration can be used (see example below), but for
+best results a more thorough configuration is recommended in order to control
+the verbosity of output from dependencies in the stack which also use logging.
+See logging.yaml which is included in the package (although only used for CLI)</p>
+<p>Simple logging configuration example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">logging</span>
+<span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">%(levelname)s</span><span class="s2">: </span><span class="si">%(message)s</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">WARNING</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="dependencies">
+<h2>Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this heading">¶</a></h2>
+<p>pytrustplatform depends on pykitcommander to manage Microchip IoT kit firmware
+and connection.
+pytrustplatform depends on pyedbglib for its transport protocol.
+pyedbglib requires a USB transport library like libusb.
+See pyedbglib package for more information.</p>
+</section>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="pytrustplatform.html">pytrustplatform package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pytrustplatform.html#module-pytrustplatform.ca_create">CA certificate creation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pytrustplatform.html#pytrustplatform.ca_create.add_signer_extensions"><code class="docutils literal notranslate"><span class="pre">add_signer_extensions()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pytrustplatform.html#pytrustplatform.ca_create.ca_create_root"><code class="docutils literal notranslate"><span class="pre">ca_create_root()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pytrustplatform.html#pytrustplatform.ca_create.ca_create_signer"><code class="docutils literal notranslate"><span class="pre">ca_create_signer()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pytrustplatform.html#pytrustplatform.ca_create.ca_create_signer_csr"><code class="docutils literal notranslate"><span class="pre">ca_create_signer_csr()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pytrustplatform.html#pytrustplatform.ca_create.load_certificate"><code class="docutils literal notranslate"><span class="pre">load_certificate()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pytrustplatform.html#pytrustplatform.ca_create.load_csr"><code class="docutils literal notranslate"><span class="pre">load_csr()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pytrustplatform.html#pytrustplatform.ca_create.load_key"><code class="docutils literal notranslate"><span class="pre">load_key()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pytrustplatform.html#pytrustplatform.ca_create.load_or_create_key"><code class="docutils literal notranslate"><span class="pre">load_or_create_key()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pytrustplatform.html#pytrustplatform.ca_create.random_cert_sn"><code class="docutils literal notranslate"><span class="pre">random_cert_sn()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pytrustplatform.html#pytrustplatform.ca_create.save_certificate"><code class="docutils literal notranslate"><span class="pre">save_certificate()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pytrustplatform.html#pytrustplatform.ca_create.save_key"><code class="docutils literal notranslate"><span class="pre">save_key()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pytrustplatform.html#module-pytrustplatform.cert_get_data">Get certificate data</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pytrustplatform.html#pytrustplatform.cert_get_data.cert_get_common_name"><code class="docutils literal notranslate"><span class="pre">cert_get_common_name()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pytrustplatform.html#pytrustplatform.cert_get_data.cert_get_common_name_from_pem"><code class="docutils literal notranslate"><span class="pre">cert_get_common_name_from_pem()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pytrustplatform.html#pytrustplatform.cert_get_data.cert_get_skid"><code class="docutils literal notranslate"><span class="pre">cert_get_skid()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pytrustplatform.html#pytrustplatform.cert_get_data.create_cert_fingerprint"><code class="docutils literal notranslate"><span class="pre">create_cert_fingerprint()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pytrustplatform.html#module-pytrustplatform.compressed_cert_decoder">Compressed certificate decoder</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pytrustplatform.html#pytrustplatform.compressed_cert_decoder.CertificateRepresentation"><code class="docutils literal notranslate"><span class="pre">CertificateRepresentation</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pytrustplatform.html#pytrustplatform.compressed_cert_decoder.CertificateRepresentation.build_serialnumber"><code class="docutils literal notranslate"><span class="pre">CertificateRepresentation.build_serialnumber()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pytrustplatform.html#pytrustplatform.compressed_cert_decoder.CertificateRepresentation.log"><code class="docutils literal notranslate"><span class="pre">CertificateRepresentation.log()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pytrustplatform.html#pytrustplatform.compressed_cert_decoder.CompressedCertificateData"><code class="docutils literal notranslate"><span class="pre">CompressedCertificateData</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pytrustplatform.html#pytrustplatform.compressed_cert_decoder.CompressedCertificateData.read_from_kit"><code class="docutils literal notranslate"><span class="pre">CompressedCertificateData.read_from_kit()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pytrustplatform.html#pytrustplatform.compressed_cert_decoder.CompressedCertificateData.read_from_kit_slot5"><code class="docutils literal notranslate"><span class="pre">CompressedCertificateData.read_from_kit_slot5()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pytrustplatform.html#pytrustplatform.compressed_cert_decoder.DeviceCertificateRepresentation"><code class="docutils literal notranslate"><span class="pre">DeviceCertificateRepresentation</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pytrustplatform.html#pytrustplatform.compressed_cert_decoder.SignerCertificateRepresentation"><code class="docutils literal notranslate"><span class="pre">SignerCertificateRepresentation</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pytrustplatform.html#pytrustplatform.compressed_cert_decoder.create_key_identifier"><code class="docutils literal notranslate"><span class="pre">create_key_identifier()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pytrustplatform.html#module-pytrustplatform.device_cert_builder">Device certificate builder</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pytrustplatform.html#pytrustplatform.device_cert_builder.build_device_cert"><code class="docutils literal notranslate"><span class="pre">build_device_cert()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pytrustplatform.html#pytrustplatform.device_cert_builder.build_device_csr"><code class="docutils literal notranslate"><span class="pre">build_device_csr()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pytrustplatform.html#pytrustplatform.device_cert_builder.device_cert_sn"><code class="docutils literal notranslate"><span class="pre">device_cert_sn()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pytrustplatform.html#module-pytrustplatform.ecc_cert_builder">ECC certificate builder</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pytrustplatform.html#pytrustplatform.ecc_cert_builder.EccCertificateBuilder"><code class="docutils literal notranslate"><span class="pre">EccCertificateBuilder</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pytrustplatform.html#pytrustplatform.ecc_cert_builder.EccCertificateBuilder.add_signature"><code class="docutils literal notranslate"><span class="pre">EccCertificateBuilder.add_signature()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pytrustplatform.html#pytrustplatform.ecc_cert_builder.EccCertificateBuilder.set_pubkey"><code class="docutils literal notranslate"><span class="pre">EccCertificateBuilder.set_pubkey()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pytrustplatform.html#pytrustplatform.ecc_cert_builder.EccCertificateBuilder.set_serial_number"><code class="docutils literal notranslate"><span class="pre">EccCertificateBuilder.set_serial_number()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pytrustplatform.html#pytrustplatform.ecc_cert_builder.EccCertificateBuilder.set_validity_dates"><code class="docutils literal notranslate"><span class="pre">EccCertificateBuilder.set_validity_dates()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pytrustplatform.html#pytrustplatform.ecc_cert_builder.Mah1hDeviceCertificateBuilder"><code class="docutils literal notranslate"><span class="pre">Mah1hDeviceCertificateBuilder</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pytrustplatform.html#pytrustplatform.ecc_cert_builder.Mah1hDeviceCertificateBuilder.build"><code class="docutils literal notranslate"><span class="pre">Mah1hDeviceCertificateBuilder.build()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pytrustplatform.html#pytrustplatform.ecc_cert_builder.Mah1hDeviceCertificateBuilder.set_authority_key_identifier"><code class="docutils literal notranslate"><span class="pre">Mah1hDeviceCertificateBuilder.set_authority_key_identifier()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pytrustplatform.html#pytrustplatform.ecc_cert_builder.Mah1hDeviceCertificateBuilder.set_issuer"><code class="docutils literal notranslate"><span class="pre">Mah1hDeviceCertificateBuilder.set_issuer()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pytrustplatform.html#pytrustplatform.ecc_cert_builder.Mah1hSignerCertificateBuilder"><code class="docutils literal notranslate"><span class="pre">Mah1hSignerCertificateBuilder</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pytrustplatform.html#pytrustplatform.ecc_cert_builder.Mah1hSignerCertificateBuilder.build"><code class="docutils literal notranslate"><span class="pre">Mah1hSignerCertificateBuilder.build()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pytrustplatform.html#pytrustplatform.ecc_cert_builder.Mah1hSignerCertificateBuilder.set_subject"><code class="docutils literal notranslate"><span class="pre">Mah1hSignerCertificateBuilder.set_subject()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pytrustplatform.html#pytrustplatform.ecc_cert_builder.Mah1hSignerCertificateBuilder.set_subject_key_identifier"><code class="docutils literal notranslate"><span class="pre">Mah1hSignerCertificateBuilder.set_subject_key_identifier()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pytrustplatform.html#pytrustplatform.ecc_cert_builder.Mah1hSignerCertificateBuilder.set_validity_dates"><code class="docutils literal notranslate"><span class="pre">Mah1hSignerCertificateBuilder.set_validity_dates()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pytrustplatform.html#pytrustplatform.ecc_cert_builder.Mah4iDeviceCertificateBuilder"><code class="docutils literal notranslate"><span class="pre">Mah4iDeviceCertificateBuilder</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pytrustplatform.html#pytrustplatform.ecc_cert_builder.Mah4iDeviceCertificateBuilder.build"><code class="docutils literal notranslate"><span class="pre">Mah4iDeviceCertificateBuilder.build()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pytrustplatform.html#pytrustplatform.ecc_cert_builder.Mah4iSignerCertificateBuilder"><code class="docutils literal notranslate"><span class="pre">Mah4iSignerCertificateBuilder</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pytrustplatform.html#pytrustplatform.ecc_cert_builder.TngDeviceCertificateBuilder"><code class="docutils literal notranslate"><span class="pre">TngDeviceCertificateBuilder</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pytrustplatform.html#pytrustplatform.ecc_cert_builder.TngDeviceCertificateBuilder.build"><code class="docutils literal notranslate"><span class="pre">TngDeviceCertificateBuilder.build()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pytrustplatform.html#pytrustplatform.ecc_cert_builder.TngDeviceCertificateBuilder.set_authority_key_identifier"><code class="docutils literal notranslate"><span class="pre">TngDeviceCertificateBuilder.set_authority_key_identifier()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pytrustplatform.html#pytrustplatform.ecc_cert_builder.TngDeviceCertificateBuilder.set_issuer"><code class="docutils literal notranslate"><span class="pre">TngDeviceCertificateBuilder.set_issuer()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pytrustplatform.html#pytrustplatform.ecc_cert_builder.TngDeviceCertificateBuilder.set_mac_address"><code class="docutils literal notranslate"><span class="pre">TngDeviceCertificateBuilder.set_mac_address()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pytrustplatform.html#pytrustplatform.ecc_cert_builder.TngDeviceCertificateBuilder.set_subject"><code class="docutils literal notranslate"><span class="pre">TngDeviceCertificateBuilder.set_subject()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pytrustplatform.html#pytrustplatform.ecc_cert_builder.TngDeviceCertificateBuilder.set_subject_key_identifier"><code class="docutils literal notranslate"><span class="pre">TngDeviceCertificateBuilder.set_subject_key_identifier()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pytrustplatform.html#pytrustplatform.ecc_cert_builder.TngSignerCertificateBuilder"><code class="docutils literal notranslate"><span class="pre">TngSignerCertificateBuilder</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pytrustplatform.html#pytrustplatform.ecc_cert_builder.TngSignerCertificateBuilder.build"><code class="docutils literal notranslate"><span class="pre">TngSignerCertificateBuilder.build()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pytrustplatform.html#pytrustplatform.ecc_cert_builder.TngSignerCertificateBuilder.set_subject"><code class="docutils literal notranslate"><span class="pre">TngSignerCertificateBuilder.set_subject()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pytrustplatform.html#pytrustplatform.ecc_cert_builder.TngSignerCertificateBuilder.set_subject_key_identifier"><code class="docutils literal notranslate"><span class="pre">TngSignerCertificateBuilder.set_subject_key_identifier()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pytrustplatform.html#pytrustplatform.ecc_cert_builder.build_certs_from_ecc"><code class="docutils literal notranslate"><span class="pre">build_certs_from_ecc()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pytrustplatform.html#module-pytrustplatform.ecc_types">ECC type utilities</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pytrustplatform.html#pytrustplatform.ecc_types.classify_ecc_type"><code class="docutils literal notranslate"><span class="pre">classify_ecc_type()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pytrustplatform.html#module-pytrustplatform.verification_cert_builder">Verification certificate builder</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pytrustplatform.html#pytrustplatform.verification_cert_builder.build_verification_cert"><code class="docutils literal notranslate"><span class="pre">build_verification_cert()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pytrustplatform.html#module-pytrustplatform.manifest.manifest_functions">Manifest functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pytrustplatform.html#pytrustplatform.manifest.manifest_functions.create_manifest_from_certs"><code class="docutils literal notranslate"><span class="pre">create_manifest_from_certs()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pytrustplatform.html#pytrustplatform.manifest.manifest_functions.create_manifest_from_secure_element"><code class="docutils literal notranslate"><span class="pre">create_manifest_from_secure_element()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pytrustplatform.html#pytrustplatform.manifest.manifest_functions.extract_certificates"><code class="docutils literal notranslate"><span class="pre">extract_certificates()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pytrustplatform.html#pytrustplatform.manifest.manifest_functions.extract_certificates_from_secure_element"><code class="docutils literal notranslate"><span class="pre">extract_certificates_from_secure_element()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pytrustplatform.html#pytrustplatform.manifest.manifest_functions.get_secure_element"><code class="docutils literal notranslate"><span class="pre">get_secure_element()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pytrustplatform.html#pytrustplatform.manifest.manifest_functions.list_secure_element_ids"><code class="docutils literal notranslate"><span class="pre">list_secure_element_ids()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pytrustplatform.html#pytrustplatform.manifest.manifest_functions.list_secure_elements"><code class="docutils literal notranslate"><span class="pre">list_secure_elements()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pytrustplatform.html#module-pytrustplatform.manifest.manifest">Manifest library</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pytrustplatform.html#pytrustplatform.manifest.manifest.Manifest"><code class="docutils literal notranslate"><span class="pre">Manifest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pytrustplatform.html#pytrustplatform.manifest.manifest.Manifest.append"><code class="docutils literal notranslate"><span class="pre">Manifest.append()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pytrustplatform.html#pytrustplatform.manifest.manifest.Manifest.dumps"><code class="docutils literal notranslate"><span class="pre">Manifest.dumps()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pytrustplatform.html#pytrustplatform.manifest.manifest.Manifest.find_secure_element"><code class="docutils literal notranslate"><span class="pre">Manifest.find_secure_element()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pytrustplatform.html#pytrustplatform.manifest.manifest.ManifestSigner"><code class="docutils literal notranslate"><span class="pre">ManifestSigner</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pytrustplatform.html#pytrustplatform.manifest.manifest.ManifestSigner.find_cert"><code class="docutils literal notranslate"><span class="pre">ManifestSigner.find_cert()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pytrustplatform.html#pytrustplatform.manifest.manifest.ManifestSigner.fingerprint"><code class="docutils literal notranslate"><span class="pre">ManifestSigner.fingerprint</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pytrustplatform.html#pytrustplatform.manifest.manifest.ManifestSigner.load"><code class="docutils literal notranslate"><span class="pre">ManifestSigner.load()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pytrustplatform.html#pytrustplatform.manifest.manifest.SecureElement"><code class="docutils literal notranslate"><span class="pre">SecureElement</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pytrustplatform.html#pytrustplatform.manifest.manifest.SecureElement.get_certificate"><code class="docutils literal notranslate"><span class="pre">SecureElement.get_certificate()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pytrustplatform.html#pytrustplatform.manifest.manifest.SecureElement.set_provisioning_time"><code class="docutils literal notranslate"><span class="pre">SecureElement.set_provisioning_time()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pytrustplatform.html#pytrustplatform.manifest.manifest.SecureElement.set_publicJWK"><code class="docutils literal notranslate"><span class="pre">SecureElement.set_publicJWK()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pytrustplatform.html#pytrustplatform.manifest.manifest.SecureElement.set_unique_id"><code class="docutils literal notranslate"><span class="pre">SecureElement.set_unique_id()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pytrustplatform.html#pytrustplatform.manifest.manifest.SignedSecureElement"><code class="docutils literal notranslate"><span class="pre">SignedSecureElement</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pytrustplatform.html#pytrustplatform.manifest.manifest.SignedSecureElement.encode"><code class="docutils literal notranslate"><span class="pre">SignedSecureElement.encode()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pytrustplatform.html#pytrustplatform.manifest.manifest.SignedSecureElement.get_secure_element"><code class="docutils literal notranslate"><span class="pre">SignedSecureElement.get_secure_element()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pytrustplatform.html#pytrustplatform.manifest.manifest.SignedSecureElement.verify"><code class="docutils literal notranslate"><span class="pre">SignedSecureElement.verify()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pytrustplatform.html#pytrustplatform.manifest.manifest.TcustomTlsSecureElement"><code class="docutils literal notranslate"><span class="pre">TcustomTlsSecureElement</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pytrustplatform.html#pytrustplatform.manifest.manifest.TnFlexTlsSecureElement"><code class="docutils literal notranslate"><span class="pre">TnFlexTlsSecureElement</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pytrustplatform.html#pytrustplatform.manifest.manifest.TnGoTlsSecureElement"><code class="docutils literal notranslate"><span class="pre">TnGoTlsSecureElement</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pytrustplatform.html#pytrustplatform.manifest.manifest.TnGoTlsSecureElement.build"><code class="docutils literal notranslate"><span class="pre">TnGoTlsSecureElement.build()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pytrustplatform.html#pytrustplatform.manifest.manifest.TnGoTlsSecureElement.get_device_certificate"><code class="docutils literal notranslate"><span class="pre">TnGoTlsSecureElement.get_device_certificate()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pytrustplatform.html#pytrustplatform.manifest.manifest.TnGoTlsSecureElement.get_signer_certificate"><code class="docutils literal notranslate"><span class="pre">TnGoTlsSecureElement.get_signer_certificate()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pytrustplatform.html#pytrustplatform.manifest.manifest.load_cert"><code class="docutils literal notranslate"><span class="pre">load_cert()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pytrustplatform.html#pytrustplatform.manifest.manifest.urlsafe_b64decode_unpadded"><code class="docutils literal notranslate"><span class="pre">urlsafe_b64decode_unpadded()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pytrustplatform.html#pytrustplatform.manifest.manifest.urlsafe_b64encode_unpadded"><code class="docutils literal notranslate"><span class="pre">urlsafe_b64encode_unpadded()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pytrustplatform.html#module-pytrustplatform.manifest.data_provider">Manifest data provider</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pytrustplatform.html#pytrustplatform.manifest.data_provider.CertsData"><code class="docutils literal notranslate"><span class="pre">CertsData</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pytrustplatform.html#pytrustplatform.manifest.data_provider.CertsData.get_certificate"><code class="docutils literal notranslate"><span class="pre">CertsData.get_certificate()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pytrustplatform.html#pytrustplatform.manifest.data_provider.CertsData.get_provisioning_time"><code class="docutils literal notranslate"><span class="pre">CertsData.get_provisioning_time()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pytrustplatform.html#pytrustplatform.manifest.data_provider.CertsData.get_pubkey"><code class="docutils literal notranslate"><span class="pre">CertsData.get_pubkey()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pytrustplatform.html#pytrustplatform.manifest.data_provider.CertsData.get_serial_number"><code class="docutils literal notranslate"><span class="pre">CertsData.get_serial_number()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pytrustplatform.html#pytrustplatform.manifest.data_provider.EccDataProvider"><code class="docutils literal notranslate"><span class="pre">EccDataProvider</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pytrustplatform.html#pytrustplatform.manifest.data_provider.EccDataProvider.get_certificate"><code class="docutils literal notranslate"><span class="pre">EccDataProvider.get_certificate()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pytrustplatform.html#pytrustplatform.manifest.data_provider.EccDataProvider.get_provisioning_time"><code class="docutils literal notranslate"><span class="pre">EccDataProvider.get_provisioning_time()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pytrustplatform.html#pytrustplatform.manifest.data_provider.EccDataProvider.get_pubkey"><code class="docutils literal notranslate"><span class="pre">EccDataProvider.get_pubkey()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pytrustplatform.html#pytrustplatform.manifest.data_provider.EccDataProvider.get_secure_element"><code class="docutils literal notranslate"><span class="pre">EccDataProvider.get_secure_element()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pytrustplatform.html#pytrustplatform.manifest.data_provider.EccDataProvider.get_serial_number"><code class="docutils literal notranslate"><span class="pre">EccDataProvider.get_serial_number()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pytrustplatform.html#pytrustplatform.manifest.data_provider.EccTestData"><code class="docutils literal notranslate"><span class="pre">EccTestData</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pytrustplatform.html#pytrustplatform.manifest.data_provider.EccTestData.get_certificate"><code class="docutils literal notranslate"><span class="pre">EccTestData.get_certificate()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pytrustplatform.html#pytrustplatform.manifest.data_provider.EccTestData.get_provisioning_time"><code class="docutils literal notranslate"><span class="pre">EccTestData.get_provisioning_time()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pytrustplatform.html#pytrustplatform.manifest.data_provider.EccTestData.get_pubkey"><code class="docutils literal notranslate"><span class="pre">EccTestData.get_pubkey()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pytrustplatform.html#pytrustplatform.manifest.data_provider.EccTestData.get_secure_element"><code class="docutils literal notranslate"><span class="pre">EccTestData.get_secure_element()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pytrustplatform.html#pytrustplatform.manifest.data_provider.EccTestData.get_serial_number"><code class="docutils literal notranslate"><span class="pre">EccTestData.get_serial_number()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pytrustplatform.html#pytrustplatform.manifest.data_provider.ManifestDataProvider"><code class="docutils literal notranslate"><span class="pre">ManifestDataProvider</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pytrustplatform.html#pytrustplatform.manifest.data_provider.ManifestDataProvider.get_certificate"><code class="docutils literal notranslate"><span class="pre">ManifestDataProvider.get_certificate()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pytrustplatform.html#pytrustplatform.manifest.data_provider.ManifestDataProvider.get_pubkey"><code class="docutils literal notranslate"><span class="pre">ManifestDataProvider.get_pubkey()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pytrustplatform.html#pytrustplatform.manifest.data_provider.ManifestDataProvider.get_serial_number"><code class="docutils literal notranslate"><span class="pre">ManifestDataProvider.get_serial_number()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pytrustplatform.html#module-pytrustplatform.serialnumber">Serial number utilities</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pytrustplatform.html#pytrustplatform.serialnumber.new_device_serialnumber"><code class="docutils literal notranslate"><span class="pre">new_device_serialnumber()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pytrustplatform.html#pytrustplatform.serialnumber.new_publickey_serialnumber"><code class="docutils literal notranslate"><span class="pre">new_publickey_serialnumber()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pytrustplatform.html#pytrustplatform.serialnumber.new_random_serialnumber"><code class="docutils literal notranslate"><span class="pre">new_random_serialnumber()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pytrustplatform.html#module-pytrustplatform.pytrust_errors">Errors</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pytrustplatform.html#pytrustplatform.pytrust_errors.PytrustCertificateError"><code class="docutils literal notranslate"><span class="pre">PytrustCertificateError</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pytrustplatform.html#pytrustplatform.pytrust_errors.PytrustError"><code class="docutils literal notranslate"><span class="pre">PytrustError</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pytrustplatform.html#module-pytrustplatform">pytrustplatform</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pytrustplatform.html#python-trust-platform-utilities">Python Trust Platform utilities</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pytrustplatform.html#overview">Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pytrustplatform.html#fetching-data-from-a-certificate">Fetching data from a certificate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pytrustplatform.html#create-device-certificate-and-csr">Create device certificate and CSR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pytrustplatform.html#create-device-and-signer-certificate-from-ecc-data">Create device and signer certificate from ECC data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pytrustplatform.html#create-verification-certificate">Create verification certificate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pytrustplatform.html#create-chain-of-trust">Create chain of trust</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pytrustplatform.html#logging">Logging</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pytrustplatform.html#dependencies">Dependencies</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="indices-and-tables">
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this heading">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
+<li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
+<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
+</ul>
+</section>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-wrapper">
+        <div class="footer" role="contentinfo">
+            © Copyright 2021, Microchip Technology Inc
+        </div>
+    </div>
+  </body>
+</html>

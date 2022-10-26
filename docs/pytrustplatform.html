@@ -1,0 +1,1950 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>pytrustplatform package &#8212; pytrustplatform  documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/microchip.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="pytrustplatform documentation" href="index.html" /> 
+  </head><body>
+    <header>
+        <div class="logo">
+            <a href="https://microchip.com" target="_blank">
+                <img src="_static/microchip.png" />
+            </a>
+        </div>
+    </header>
+
+    <div class="related-wrapper">
+        
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="pytrustplatform documentation"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">pytrustplatform  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">pytrustplatform package</a></li> 
+      </ul>
+    </div>
+    </div>
+
+    <div class="document">
+        
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">pytrustplatform package</a><ul>
+<li><a class="reference internal" href="#module-pytrustplatform.ca_create">CA certificate creation</a><ul>
+<li><a class="reference internal" href="#pytrustplatform.ca_create.add_signer_extensions"><code class="docutils literal notranslate"><span class="pre">add_signer_extensions()</span></code></a></li>
+<li><a class="reference internal" href="#pytrustplatform.ca_create.ca_create_root"><code class="docutils literal notranslate"><span class="pre">ca_create_root()</span></code></a></li>
+<li><a class="reference internal" href="#pytrustplatform.ca_create.ca_create_signer"><code class="docutils literal notranslate"><span class="pre">ca_create_signer()</span></code></a></li>
+<li><a class="reference internal" href="#pytrustplatform.ca_create.ca_create_signer_csr"><code class="docutils literal notranslate"><span class="pre">ca_create_signer_csr()</span></code></a></li>
+<li><a class="reference internal" href="#pytrustplatform.ca_create.load_certificate"><code class="docutils literal notranslate"><span class="pre">load_certificate()</span></code></a></li>
+<li><a class="reference internal" href="#pytrustplatform.ca_create.load_csr"><code class="docutils literal notranslate"><span class="pre">load_csr()</span></code></a></li>
+<li><a class="reference internal" href="#pytrustplatform.ca_create.load_key"><code class="docutils literal notranslate"><span class="pre">load_key()</span></code></a></li>
+<li><a class="reference internal" href="#pytrustplatform.ca_create.load_or_create_key"><code class="docutils literal notranslate"><span class="pre">load_or_create_key()</span></code></a></li>
+<li><a class="reference internal" href="#pytrustplatform.ca_create.random_cert_sn"><code class="docutils literal notranslate"><span class="pre">random_cert_sn()</span></code></a></li>
+<li><a class="reference internal" href="#pytrustplatform.ca_create.save_certificate"><code class="docutils literal notranslate"><span class="pre">save_certificate()</span></code></a></li>
+<li><a class="reference internal" href="#pytrustplatform.ca_create.save_key"><code class="docutils literal notranslate"><span class="pre">save_key()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-pytrustplatform.cert_get_data">Get certificate data</a><ul>
+<li><a class="reference internal" href="#pytrustplatform.cert_get_data.cert_get_common_name"><code class="docutils literal notranslate"><span class="pre">cert_get_common_name()</span></code></a></li>
+<li><a class="reference internal" href="#pytrustplatform.cert_get_data.cert_get_common_name_from_pem"><code class="docutils literal notranslate"><span class="pre">cert_get_common_name_from_pem()</span></code></a></li>
+<li><a class="reference internal" href="#pytrustplatform.cert_get_data.cert_get_skid"><code class="docutils literal notranslate"><span class="pre">cert_get_skid()</span></code></a></li>
+<li><a class="reference internal" href="#pytrustplatform.cert_get_data.create_cert_fingerprint"><code class="docutils literal notranslate"><span class="pre">create_cert_fingerprint()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-pytrustplatform.compressed_cert_decoder">Compressed certificate decoder</a><ul>
+<li><a class="reference internal" href="#pytrustplatform.compressed_cert_decoder.CertificateRepresentation"><code class="docutils literal notranslate"><span class="pre">CertificateRepresentation</span></code></a><ul>
+<li><a class="reference internal" href="#pytrustplatform.compressed_cert_decoder.CertificateRepresentation.build_serialnumber"><code class="docutils literal notranslate"><span class="pre">CertificateRepresentation.build_serialnumber()</span></code></a></li>
+<li><a class="reference internal" href="#pytrustplatform.compressed_cert_decoder.CertificateRepresentation.log"><code class="docutils literal notranslate"><span class="pre">CertificateRepresentation.log()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#pytrustplatform.compressed_cert_decoder.CompressedCertificateData"><code class="docutils literal notranslate"><span class="pre">CompressedCertificateData</span></code></a><ul>
+<li><a class="reference internal" href="#pytrustplatform.compressed_cert_decoder.CompressedCertificateData.read_from_kit"><code class="docutils literal notranslate"><span class="pre">CompressedCertificateData.read_from_kit()</span></code></a></li>
+<li><a class="reference internal" href="#pytrustplatform.compressed_cert_decoder.CompressedCertificateData.read_from_kit_slot5"><code class="docutils literal notranslate"><span class="pre">CompressedCertificateData.read_from_kit_slot5()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#pytrustplatform.compressed_cert_decoder.DeviceCertificateRepresentation"><code class="docutils literal notranslate"><span class="pre">DeviceCertificateRepresentation</span></code></a></li>
+<li><a class="reference internal" href="#pytrustplatform.compressed_cert_decoder.SignerCertificateRepresentation"><code class="docutils literal notranslate"><span class="pre">SignerCertificateRepresentation</span></code></a></li>
+<li><a class="reference internal" href="#pytrustplatform.compressed_cert_decoder.create_key_identifier"><code class="docutils literal notranslate"><span class="pre">create_key_identifier()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-pytrustplatform.device_cert_builder">Device certificate builder</a><ul>
+<li><a class="reference internal" href="#pytrustplatform.device_cert_builder.build_device_cert"><code class="docutils literal notranslate"><span class="pre">build_device_cert()</span></code></a></li>
+<li><a class="reference internal" href="#pytrustplatform.device_cert_builder.build_device_csr"><code class="docutils literal notranslate"><span class="pre">build_device_csr()</span></code></a></li>
+<li><a class="reference internal" href="#pytrustplatform.device_cert_builder.device_cert_sn"><code class="docutils literal notranslate"><span class="pre">device_cert_sn()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-pytrustplatform.ecc_cert_builder">ECC certificate builder</a><ul>
+<li><a class="reference internal" href="#pytrustplatform.ecc_cert_builder.EccCertificateBuilder"><code class="docutils literal notranslate"><span class="pre">EccCertificateBuilder</span></code></a><ul>
+<li><a class="reference internal" href="#pytrustplatform.ecc_cert_builder.EccCertificateBuilder.add_signature"><code class="docutils literal notranslate"><span class="pre">EccCertificateBuilder.add_signature()</span></code></a></li>
+<li><a class="reference internal" href="#pytrustplatform.ecc_cert_builder.EccCertificateBuilder.set_pubkey"><code class="docutils literal notranslate"><span class="pre">EccCertificateBuilder.set_pubkey()</span></code></a></li>
+<li><a class="reference internal" href="#pytrustplatform.ecc_cert_builder.EccCertificateBuilder.set_serial_number"><code class="docutils literal notranslate"><span class="pre">EccCertificateBuilder.set_serial_number()</span></code></a></li>
+<li><a class="reference internal" href="#pytrustplatform.ecc_cert_builder.EccCertificateBuilder.set_validity_dates"><code class="docutils literal notranslate"><span class="pre">EccCertificateBuilder.set_validity_dates()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#pytrustplatform.ecc_cert_builder.Mah1hDeviceCertificateBuilder"><code class="docutils literal notranslate"><span class="pre">Mah1hDeviceCertificateBuilder</span></code></a><ul>
+<li><a class="reference internal" href="#pytrustplatform.ecc_cert_builder.Mah1hDeviceCertificateBuilder.build"><code class="docutils literal notranslate"><span class="pre">Mah1hDeviceCertificateBuilder.build()</span></code></a></li>
+<li><a class="reference internal" href="#pytrustplatform.ecc_cert_builder.Mah1hDeviceCertificateBuilder.set_authority_key_identifier"><code class="docutils literal notranslate"><span class="pre">Mah1hDeviceCertificateBuilder.set_authority_key_identifier()</span></code></a></li>
+<li><a class="reference internal" href="#pytrustplatform.ecc_cert_builder.Mah1hDeviceCertificateBuilder.set_issuer"><code class="docutils literal notranslate"><span class="pre">Mah1hDeviceCertificateBuilder.set_issuer()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#pytrustplatform.ecc_cert_builder.Mah1hSignerCertificateBuilder"><code class="docutils literal notranslate"><span class="pre">Mah1hSignerCertificateBuilder</span></code></a><ul>
+<li><a class="reference internal" href="#pytrustplatform.ecc_cert_builder.Mah1hSignerCertificateBuilder.build"><code class="docutils literal notranslate"><span class="pre">Mah1hSignerCertificateBuilder.build()</span></code></a></li>
+<li><a class="reference internal" href="#pytrustplatform.ecc_cert_builder.Mah1hSignerCertificateBuilder.set_subject"><code class="docutils literal notranslate"><span class="pre">Mah1hSignerCertificateBuilder.set_subject()</span></code></a></li>
+<li><a class="reference internal" href="#pytrustplatform.ecc_cert_builder.Mah1hSignerCertificateBuilder.set_subject_key_identifier"><code class="docutils literal notranslate"><span class="pre">Mah1hSignerCertificateBuilder.set_subject_key_identifier()</span></code></a></li>
+<li><a class="reference internal" href="#pytrustplatform.ecc_cert_builder.Mah1hSignerCertificateBuilder.set_validity_dates"><code class="docutils literal notranslate"><span class="pre">Mah1hSignerCertificateBuilder.set_validity_dates()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#pytrustplatform.ecc_cert_builder.Mah4iDeviceCertificateBuilder"><code class="docutils literal notranslate"><span class="pre">Mah4iDeviceCertificateBuilder</span></code></a><ul>
+<li><a class="reference internal" href="#pytrustplatform.ecc_cert_builder.Mah4iDeviceCertificateBuilder.build"><code class="docutils literal notranslate"><span class="pre">Mah4iDeviceCertificateBuilder.build()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#pytrustplatform.ecc_cert_builder.Mah4iSignerCertificateBuilder"><code class="docutils literal notranslate"><span class="pre">Mah4iSignerCertificateBuilder</span></code></a></li>
+<li><a class="reference internal" href="#pytrustplatform.ecc_cert_builder.TngDeviceCertificateBuilder"><code class="docutils literal notranslate"><span class="pre">TngDeviceCertificateBuilder</span></code></a><ul>
+<li><a class="reference internal" href="#pytrustplatform.ecc_cert_builder.TngDeviceCertificateBuilder.build"><code class="docutils literal notranslate"><span class="pre">TngDeviceCertificateBuilder.build()</span></code></a></li>
+<li><a class="reference internal" href="#pytrustplatform.ecc_cert_builder.TngDeviceCertificateBuilder.set_authority_key_identifier"><code class="docutils literal notranslate"><span class="pre">TngDeviceCertificateBuilder.set_authority_key_identifier()</span></code></a></li>
+<li><a class="reference internal" href="#pytrustplatform.ecc_cert_builder.TngDeviceCertificateBuilder.set_issuer"><code class="docutils literal notranslate"><span class="pre">TngDeviceCertificateBuilder.set_issuer()</span></code></a></li>
+<li><a class="reference internal" href="#pytrustplatform.ecc_cert_builder.TngDeviceCertificateBuilder.set_mac_address"><code class="docutils literal notranslate"><span class="pre">TngDeviceCertificateBuilder.set_mac_address()</span></code></a></li>
+<li><a class="reference internal" href="#pytrustplatform.ecc_cert_builder.TngDeviceCertificateBuilder.set_subject"><code class="docutils literal notranslate"><span class="pre">TngDeviceCertificateBuilder.set_subject()</span></code></a></li>
+<li><a class="reference internal" href="#pytrustplatform.ecc_cert_builder.TngDeviceCertificateBuilder.set_subject_key_identifier"><code class="docutils literal notranslate"><span class="pre">TngDeviceCertificateBuilder.set_subject_key_identifier()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#pytrustplatform.ecc_cert_builder.TngSignerCertificateBuilder"><code class="docutils literal notranslate"><span class="pre">TngSignerCertificateBuilder</span></code></a><ul>
+<li><a class="reference internal" href="#pytrustplatform.ecc_cert_builder.TngSignerCertificateBuilder.build"><code class="docutils literal notranslate"><span class="pre">TngSignerCertificateBuilder.build()</span></code></a></li>
+<li><a class="reference internal" href="#pytrustplatform.ecc_cert_builder.TngSignerCertificateBuilder.set_subject"><code class="docutils literal notranslate"><span class="pre">TngSignerCertificateBuilder.set_subject()</span></code></a></li>
+<li><a class="reference internal" href="#pytrustplatform.ecc_cert_builder.TngSignerCertificateBuilder.set_subject_key_identifier"><code class="docutils literal notranslate"><span class="pre">TngSignerCertificateBuilder.set_subject_key_identifier()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#pytrustplatform.ecc_cert_builder.build_certs_from_ecc"><code class="docutils literal notranslate"><span class="pre">build_certs_from_ecc()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-pytrustplatform.ecc_types">ECC type utilities</a><ul>
+<li><a class="reference internal" href="#pytrustplatform.ecc_types.classify_ecc_type"><code class="docutils literal notranslate"><span class="pre">classify_ecc_type()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-pytrustplatform.verification_cert_builder">Verification certificate builder</a><ul>
+<li><a class="reference internal" href="#pytrustplatform.verification_cert_builder.build_verification_cert"><code class="docutils literal notranslate"><span class="pre">build_verification_cert()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-pytrustplatform.manifest.manifest_functions">Manifest functions</a><ul>
+<li><a class="reference internal" href="#pytrustplatform.manifest.manifest_functions.create_manifest_from_certs"><code class="docutils literal notranslate"><span class="pre">create_manifest_from_certs()</span></code></a></li>
+<li><a class="reference internal" href="#pytrustplatform.manifest.manifest_functions.create_manifest_from_secure_element"><code class="docutils literal notranslate"><span class="pre">create_manifest_from_secure_element()</span></code></a></li>
+<li><a class="reference internal" href="#pytrustplatform.manifest.manifest_functions.extract_certificates"><code class="docutils literal notranslate"><span class="pre">extract_certificates()</span></code></a></li>
+<li><a class="reference internal" href="#pytrustplatform.manifest.manifest_functions.extract_certificates_from_secure_element"><code class="docutils literal notranslate"><span class="pre">extract_certificates_from_secure_element()</span></code></a></li>
+<li><a class="reference internal" href="#pytrustplatform.manifest.manifest_functions.get_secure_element"><code class="docutils literal notranslate"><span class="pre">get_secure_element()</span></code></a></li>
+<li><a class="reference internal" href="#pytrustplatform.manifest.manifest_functions.list_secure_element_ids"><code class="docutils literal notranslate"><span class="pre">list_secure_element_ids()</span></code></a></li>
+<li><a class="reference internal" href="#pytrustplatform.manifest.manifest_functions.list_secure_elements"><code class="docutils literal notranslate"><span class="pre">list_secure_elements()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-pytrustplatform.manifest.manifest">Manifest library</a><ul>
+<li><a class="reference internal" href="#pytrustplatform.manifest.manifest.Manifest"><code class="docutils literal notranslate"><span class="pre">Manifest</span></code></a><ul>
+<li><a class="reference internal" href="#pytrustplatform.manifest.manifest.Manifest.append"><code class="docutils literal notranslate"><span class="pre">Manifest.append()</span></code></a></li>
+<li><a class="reference internal" href="#pytrustplatform.manifest.manifest.Manifest.dumps"><code class="docutils literal notranslate"><span class="pre">Manifest.dumps()</span></code></a></li>
+<li><a class="reference internal" href="#pytrustplatform.manifest.manifest.Manifest.find_secure_element"><code class="docutils literal notranslate"><span class="pre">Manifest.find_secure_element()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#pytrustplatform.manifest.manifest.ManifestSigner"><code class="docutils literal notranslate"><span class="pre">ManifestSigner</span></code></a><ul>
+<li><a class="reference internal" href="#pytrustplatform.manifest.manifest.ManifestSigner.find_cert"><code class="docutils literal notranslate"><span class="pre">ManifestSigner.find_cert()</span></code></a></li>
+<li><a class="reference internal" href="#pytrustplatform.manifest.manifest.ManifestSigner.fingerprint"><code class="docutils literal notranslate"><span class="pre">ManifestSigner.fingerprint</span></code></a></li>
+<li><a class="reference internal" href="#pytrustplatform.manifest.manifest.ManifestSigner.load"><code class="docutils literal notranslate"><span class="pre">ManifestSigner.load()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#pytrustplatform.manifest.manifest.SecureElement"><code class="docutils literal notranslate"><span class="pre">SecureElement</span></code></a><ul>
+<li><a class="reference internal" href="#pytrustplatform.manifest.manifest.SecureElement.get_certificate"><code class="docutils literal notranslate"><span class="pre">SecureElement.get_certificate()</span></code></a></li>
+<li><a class="reference internal" href="#pytrustplatform.manifest.manifest.SecureElement.set_provisioning_time"><code class="docutils literal notranslate"><span class="pre">SecureElement.set_provisioning_time()</span></code></a></li>
+<li><a class="reference internal" href="#pytrustplatform.manifest.manifest.SecureElement.set_publicJWK"><code class="docutils literal notranslate"><span class="pre">SecureElement.set_publicJWK()</span></code></a></li>
+<li><a class="reference internal" href="#pytrustplatform.manifest.manifest.SecureElement.set_unique_id"><code class="docutils literal notranslate"><span class="pre">SecureElement.set_unique_id()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#pytrustplatform.manifest.manifest.SignedSecureElement"><code class="docutils literal notranslate"><span class="pre">SignedSecureElement</span></code></a><ul>
+<li><a class="reference internal" href="#pytrustplatform.manifest.manifest.SignedSecureElement.encode"><code class="docutils literal notranslate"><span class="pre">SignedSecureElement.encode()</span></code></a></li>
+<li><a class="reference internal" href="#pytrustplatform.manifest.manifest.SignedSecureElement.get_secure_element"><code class="docutils literal notranslate"><span class="pre">SignedSecureElement.get_secure_element()</span></code></a></li>
+<li><a class="reference internal" href="#pytrustplatform.manifest.manifest.SignedSecureElement.verify"><code class="docutils literal notranslate"><span class="pre">SignedSecureElement.verify()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#pytrustplatform.manifest.manifest.TcustomTlsSecureElement"><code class="docutils literal notranslate"><span class="pre">TcustomTlsSecureElement</span></code></a></li>
+<li><a class="reference internal" href="#pytrustplatform.manifest.manifest.TnFlexTlsSecureElement"><code class="docutils literal notranslate"><span class="pre">TnFlexTlsSecureElement</span></code></a></li>
+<li><a class="reference internal" href="#pytrustplatform.manifest.manifest.TnGoTlsSecureElement"><code class="docutils literal notranslate"><span class="pre">TnGoTlsSecureElement</span></code></a><ul>
+<li><a class="reference internal" href="#pytrustplatform.manifest.manifest.TnGoTlsSecureElement.build"><code class="docutils literal notranslate"><span class="pre">TnGoTlsSecureElement.build()</span></code></a></li>
+<li><a class="reference internal" href="#pytrustplatform.manifest.manifest.TnGoTlsSecureElement.get_device_certificate"><code class="docutils literal notranslate"><span class="pre">TnGoTlsSecureElement.get_device_certificate()</span></code></a></li>
+<li><a class="reference internal" href="#pytrustplatform.manifest.manifest.TnGoTlsSecureElement.get_signer_certificate"><code class="docutils literal notranslate"><span class="pre">TnGoTlsSecureElement.get_signer_certificate()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#pytrustplatform.manifest.manifest.load_cert"><code class="docutils literal notranslate"><span class="pre">load_cert()</span></code></a></li>
+<li><a class="reference internal" href="#pytrustplatform.manifest.manifest.urlsafe_b64decode_unpadded"><code class="docutils literal notranslate"><span class="pre">urlsafe_b64decode_unpadded()</span></code></a></li>
+<li><a class="reference internal" href="#pytrustplatform.manifest.manifest.urlsafe_b64encode_unpadded"><code class="docutils literal notranslate"><span class="pre">urlsafe_b64encode_unpadded()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-pytrustplatform.manifest.data_provider">Manifest data provider</a><ul>
+<li><a class="reference internal" href="#pytrustplatform.manifest.data_provider.CertsData"><code class="docutils literal notranslate"><span class="pre">CertsData</span></code></a><ul>
+<li><a class="reference internal" href="#pytrustplatform.manifest.data_provider.CertsData.get_certificate"><code class="docutils literal notranslate"><span class="pre">CertsData.get_certificate()</span></code></a></li>
+<li><a class="reference internal" href="#pytrustplatform.manifest.data_provider.CertsData.get_provisioning_time"><code class="docutils literal notranslate"><span class="pre">CertsData.get_provisioning_time()</span></code></a></li>
+<li><a class="reference internal" href="#pytrustplatform.manifest.data_provider.CertsData.get_pubkey"><code class="docutils literal notranslate"><span class="pre">CertsData.get_pubkey()</span></code></a></li>
+<li><a class="reference internal" href="#pytrustplatform.manifest.data_provider.CertsData.get_serial_number"><code class="docutils literal notranslate"><span class="pre">CertsData.get_serial_number()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#pytrustplatform.manifest.data_provider.EccDataProvider"><code class="docutils literal notranslate"><span class="pre">EccDataProvider</span></code></a><ul>
+<li><a class="reference internal" href="#pytrustplatform.manifest.data_provider.EccDataProvider.get_certificate"><code class="docutils literal notranslate"><span class="pre">EccDataProvider.get_certificate()</span></code></a></li>
+<li><a class="reference internal" href="#pytrustplatform.manifest.data_provider.EccDataProvider.get_provisioning_time"><code class="docutils literal notranslate"><span class="pre">EccDataProvider.get_provisioning_time()</span></code></a></li>
+<li><a class="reference internal" href="#pytrustplatform.manifest.data_provider.EccDataProvider.get_pubkey"><code class="docutils literal notranslate"><span class="pre">EccDataProvider.get_pubkey()</span></code></a></li>
+<li><a class="reference internal" href="#pytrustplatform.manifest.data_provider.EccDataProvider.get_secure_element"><code class="docutils literal notranslate"><span class="pre">EccDataProvider.get_secure_element()</span></code></a></li>
+<li><a class="reference internal" href="#pytrustplatform.manifest.data_provider.EccDataProvider.get_serial_number"><code class="docutils literal notranslate"><span class="pre">EccDataProvider.get_serial_number()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#pytrustplatform.manifest.data_provider.EccTestData"><code class="docutils literal notranslate"><span class="pre">EccTestData</span></code></a><ul>
+<li><a class="reference internal" href="#pytrustplatform.manifest.data_provider.EccTestData.get_certificate"><code class="docutils literal notranslate"><span class="pre">EccTestData.get_certificate()</span></code></a></li>
+<li><a class="reference internal" href="#pytrustplatform.manifest.data_provider.EccTestData.get_provisioning_time"><code class="docutils literal notranslate"><span class="pre">EccTestData.get_provisioning_time()</span></code></a></li>
+<li><a class="reference internal" href="#pytrustplatform.manifest.data_provider.EccTestData.get_pubkey"><code class="docutils literal notranslate"><span class="pre">EccTestData.get_pubkey()</span></code></a></li>
+<li><a class="reference internal" href="#pytrustplatform.manifest.data_provider.EccTestData.get_secure_element"><code class="docutils literal notranslate"><span class="pre">EccTestData.get_secure_element()</span></code></a></li>
+<li><a class="reference internal" href="#pytrustplatform.manifest.data_provider.EccTestData.get_serial_number"><code class="docutils literal notranslate"><span class="pre">EccTestData.get_serial_number()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#pytrustplatform.manifest.data_provider.ManifestDataProvider"><code class="docutils literal notranslate"><span class="pre">ManifestDataProvider</span></code></a><ul>
+<li><a class="reference internal" href="#pytrustplatform.manifest.data_provider.ManifestDataProvider.get_certificate"><code class="docutils literal notranslate"><span class="pre">ManifestDataProvider.get_certificate()</span></code></a></li>
+<li><a class="reference internal" href="#pytrustplatform.manifest.data_provider.ManifestDataProvider.get_pubkey"><code class="docutils literal notranslate"><span class="pre">ManifestDataProvider.get_pubkey()</span></code></a></li>
+<li><a class="reference internal" href="#pytrustplatform.manifest.data_provider.ManifestDataProvider.get_serial_number"><code class="docutils literal notranslate"><span class="pre">ManifestDataProvider.get_serial_number()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-pytrustplatform.serialnumber">Serial number utilities</a><ul>
+<li><a class="reference internal" href="#pytrustplatform.serialnumber.new_device_serialnumber"><code class="docutils literal notranslate"><span class="pre">new_device_serialnumber()</span></code></a></li>
+<li><a class="reference internal" href="#pytrustplatform.serialnumber.new_publickey_serialnumber"><code class="docutils literal notranslate"><span class="pre">new_publickey_serialnumber()</span></code></a></li>
+<li><a class="reference internal" href="#pytrustplatform.serialnumber.new_random_serialnumber"><code class="docutils literal notranslate"><span class="pre">new_random_serialnumber()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-pytrustplatform.pytrust_errors">Errors</a><ul>
+<li><a class="reference internal" href="#pytrustplatform.pytrust_errors.PytrustCertificateError"><code class="docutils literal notranslate"><span class="pre">PytrustCertificateError</span></code></a></li>
+<li><a class="reference internal" href="#pytrustplatform.pytrust_errors.PytrustError"><code class="docutils literal notranslate"><span class="pre">PytrustError</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-pytrustplatform">pytrustplatform</a><ul>
+<li><a class="reference internal" href="#python-trust-platform-utilities">Python Trust Platform utilities</a></li>
+<li><a class="reference internal" href="#overview">Overview</a></li>
+<li><a class="reference internal" href="#fetching-data-from-a-certificate">Fetching data from a certificate</a></li>
+<li><a class="reference internal" href="#create-device-certificate-and-csr">Create device certificate and CSR</a></li>
+<li><a class="reference internal" href="#create-device-and-signer-certificate-from-ecc-data">Create device and signer certificate from ECC data</a></li>
+<li><a class="reference internal" href="#create-verification-certificate">Create verification certificate</a></li>
+<li><a class="reference internal" href="#create-chain-of-trust">Create chain of trust</a></li>
+<li><a class="reference internal" href="#logging">Logging</a></li>
+<li><a class="reference internal" href="#dependencies">Dependencies</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="index.html"
+                          title="previous chapter">pytrustplatform documentation</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/pytrustplatform.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+        <div class="documentwrapper">
+            <div class="bodywrapper">
+                <div class="body" role="main">
+                    
+  <section id="pytrustplatform-package">
+<h1>pytrustplatform package<a class="headerlink" href="#pytrustplatform-package" title="Permalink to this heading">¶</a></h1>
+<section id="module-pytrustplatform.ca_create">
+<span id="ca-certificate-creation"></span><h2>CA certificate creation<a class="headerlink" href="#module-pytrustplatform.ca_create" title="Permalink to this heading">¶</a></h2>
+<p>CA certificate creation utilities</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="pytrustplatform.ca_create.add_signer_extensions">
+<span class="sig-prename descclassname"><span class="pre">pytrustplatform.ca_create.</span></span><span class="sig-name descname"><span class="pre">add_signer_extensions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">builder</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">public_key</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">authority_cert</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pytrustplatform.ca_create.add_signer_extensions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add signer extensions to certificate builder
+:param builder: certificate builder
+:param public_key: public key to use (default: taken from builder)
+:param authority_cert: optional authority certificate</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pytrustplatform.ca_create.ca_create_root">
+<span class="sig-prename descclassname"><span class="pre">pytrustplatform.ca_create.</span></span><span class="sig-name descname"><span class="pre">ca_create_root</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root_ca_key_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">root_ca_cert_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">force</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">org_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">common_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">DEFAULT_ROOT_COMMON_NAME</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">country</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pytrustplatform.ca_create.ca_create_root" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a CA Root Certificate
+:param root_ca_key_path: path to look for private key (or place key if created)
+:param root_ca_cert_path: path to store certificate
+:param force: Force re-creation of existing certificate
+:param org_name: Specify Organization Name attribute
+:param common_name: Specify Common Name attribute</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pytrustplatform.ca_create.ca_create_signer">
+<span class="sig-prename descclassname"><span class="pre">pytrustplatform.ca_create.</span></span><span class="sig-name descname"><span class="pre">ca_create_signer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">signer_ca_csr_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">signer_ca_cert_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">root_ca_key_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">root_ca_cert_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">force</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pytrustplatform.ca_create.ca_create_signer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create signer certificate
+:param signer_ca_csr_path: path to signer CA Certificate Signing Request
+:param signer_ca_cert_path: path to store signer CA certificate
+:param root_ca_key_path: path to look for private key
+:param root_ca_cert_path: path to root CA certificate
+:param force: Force re-creation of existing certificate</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pytrustplatform.ca_create.ca_create_signer_csr">
+<span class="sig-prename descclassname"><span class="pre">pytrustplatform.ca_create.</span></span><span class="sig-name descname"><span class="pre">ca_create_signer_csr</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">signer_ca_key_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">signer_ca_csr_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">force</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">org_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">DEFAULT_ORGANIZATION_NAME</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">common_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">DEFAULT_SIGNER_COMMON_NAME</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">country</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pytrustplatform.ca_create.ca_create_signer_csr" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a signer Certificate Signing Request (CSR)
+:param signer_ca_key_path: path to signer CA key
+:param signer_ca_csr_path: path to signer CA Certificate Signing Request
+:param force: Force re-creation of existing certificate
+:param org_name: Specify Organization Name attribute
+:param common_name: Specify Common Name attribute</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pytrustplatform.ca_create.load_certificate">
+<span class="sig-prename descclassname"><span class="pre">pytrustplatform.ca_create.</span></span><span class="sig-name descname"><span class="pre">load_certificate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">certificate_path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pytrustplatform.ca_create.load_certificate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Loads a certificate from file
+:param certificate_path: path to file to load
+:return: certificate data</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pytrustplatform.ca_create.load_csr">
+<span class="sig-prename descclassname"><span class="pre">pytrustplatform.ca_create.</span></span><span class="sig-name descname"><span class="pre">load_csr</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">csr_path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pytrustplatform.ca_create.load_csr" title="Permalink to this definition">¶</a></dt>
+<dd><p>Loads a CSR from file
+:param csr_path: path to request to load</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pytrustplatform.ca_create.load_key">
+<span class="sig-prename descclassname"><span class="pre">pytrustplatform.ca_create.</span></span><span class="sig-name descname"><span class="pre">load_key</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pytrustplatform.ca_create.load_key" title="Permalink to this definition">¶</a></dt>
+<dd><p>Loads an existing key from file
+:param filename: key to load
+:return: key loaded</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pytrustplatform.ca_create.load_or_create_key">
+<span class="sig-prename descclassname"><span class="pre">pytrustplatform.ca_create.</span></span><span class="sig-name descname"><span class="pre">load_or_create_key</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">force_create</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pytrustplatform.ca_create.load_or_create_key" title="Permalink to this definition">¶</a></dt>
+<dd><p>Attempts to load a key from file
+If the file does not exist, a new key is created and written to file.
+:param filename: file to attempt to open or create
+:param force: create a new key even if it exists already
+:return: key content</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pytrustplatform.ca_create.random_cert_sn">
+<span class="sig-prename descclassname"><span class="pre">pytrustplatform.ca_create.</span></span><span class="sig-name descname"><span class="pre">random_cert_sn</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">size</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pytrustplatform.ca_create.random_cert_sn" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a positive, non-trimmable serial number for X.509 certificates
+:param size: size in bytes
+:return: random serial number</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pytrustplatform.ca_create.save_certificate">
+<span class="sig-prename descclassname"><span class="pre">pytrustplatform.ca_create.</span></span><span class="sig-name descname"><span class="pre">save_certificate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">certificate</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pytrustplatform.ca_create.save_certificate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Writes a certificate to file using PEM encoding
+:param filename: file to write to
+:param certificate: certificate to write</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pytrustplatform.ca_create.save_key">
+<span class="sig-prename descclassname"><span class="pre">pytrustplatform.ca_create.</span></span><span class="sig-name descname"><span class="pre">save_key</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pytrustplatform.ca_create.save_key" title="Permalink to this definition">¶</a></dt>
+<dd><p>Writes a key to file using PEM encoding
+:param filename: file to write to
+:param key: key to write</p>
+</dd></dl>
+
+</section>
+<section id="module-pytrustplatform.cert_get_data">
+<span id="get-certificate-data"></span><h2>Get certificate data<a class="headerlink" href="#module-pytrustplatform.cert_get_data" title="Permalink to this heading">¶</a></h2>
+<p>Helper functions for fetching data from a certificate</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="pytrustplatform.cert_get_data.cert_get_common_name">
+<span class="sig-prename descclassname"><span class="pre">pytrustplatform.cert_get_data.</span></span><span class="sig-name descname"><span class="pre">cert_get_common_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pytrustplatform.cert_get_data.cert_get_common_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get Subject Common Name from a certificate passed in by filename</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>filename</strong> (<em>str</em>) – Certificate file</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Subject Common Name from certificate</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pytrustplatform.cert_get_data.cert_get_common_name_from_pem">
+<span class="sig-prename descclassname"><span class="pre">pytrustplatform.cert_get_data.</span></span><span class="sig-name descname"><span class="pre">cert_get_common_name_from_pem</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">certificate</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pytrustplatform.cert_get_data.cert_get_common_name_from_pem" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get Subject Common Name from certificate passed in as a PEM string</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>certificate</strong> (<em>str</em><em> or </em><em>bytes</em>) – Certificate in PEM format</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Subject Common Name from certificate</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pytrustplatform.cert_get_data.cert_get_skid">
+<span class="sig-prename descclassname"><span class="pre">pytrustplatform.cert_get_data.</span></span><span class="sig-name descname"><span class="pre">cert_get_skid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pytrustplatform.cert_get_data.cert_get_skid" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create Subject key identifier from a certificate.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>filename</strong> (<em>str</em>) – Certificate file</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>ASCII hex encoded subject key identifier</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pytrustplatform.cert_get_data.create_cert_fingerprint">
+<span class="sig-prename descclassname"><span class="pre">pytrustplatform.cert_get_data.</span></span><span class="sig-name descname"><span class="pre">create_cert_fingerprint</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pytrustplatform.cert_get_data.create_cert_fingerprint" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create fingerprint of certificate</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>filename</strong> (<em>str</em>) – Certificate file</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>ASCII hex encoded fingerprint</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-pytrustplatform.compressed_cert_decoder">
+<span id="compressed-certificate-decoder"></span><h2>Compressed certificate decoder<a class="headerlink" href="#module-pytrustplatform.compressed_cert_decoder" title="Permalink to this heading">¶</a></h2>
+<p>Decodes compressed certificates from ECC</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="pytrustplatform.compressed_cert_decoder.CertificateRepresentation">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pytrustplatform.compressed_cert_decoder.</span></span><span class="sig-name descname"><span class="pre">CertificateRepresentation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">compressed_certificate_data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pytrustplatform.compressed_cert_decoder.CertificateRepresentation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Representation of a certificate</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="pytrustplatform.compressed_cert_decoder.CertificateRepresentation.build_serialnumber">
+<span class="sig-name descname"><span class="pre">build_serialnumber</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pubkey</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dev_sn_number</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pytrustplatform.compressed_cert_decoder.CertificateRepresentation.build_serialnumber" title="Permalink to this definition">¶</a></dt>
+<dd><p>Builds a serial number
+:param pubkey: public key to use
+:param dev_sn_number: serial number to use</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pytrustplatform.compressed_cert_decoder.CertificateRepresentation.log">
+<span class="sig-name descname"><span class="pre">log</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pytrustplatform.compressed_cert_decoder.CertificateRepresentation.log" title="Permalink to this definition">¶</a></dt>
+<dd><p>Log some fields</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pytrustplatform.compressed_cert_decoder.CompressedCertificateData">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pytrustplatform.compressed_cert_decoder.</span></span><span class="sig-name descname"><span class="pre">CompressedCertificateData</span></span><a class="headerlink" href="#pytrustplatform.compressed_cert_decoder.CompressedCertificateData" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Compressed certificate data provider</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="pytrustplatform.compressed_cert_decoder.CompressedCertificateData.read_from_kit">
+<span class="sig-name descname"><span class="pre">read_from_kit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">firmware_driver</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pytrustplatform.compressed_cert_decoder.CompressedCertificateData.read_from_kit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read data from a kit
+Do not read slot 5 - see function read_from_kit_slot5</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>firmware_driver</strong> – Protocol driver instance for communicating with firmware on the MCU</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pytrustplatform.compressed_cert_decoder.CompressedCertificateData.read_from_kit_slot5">
+<span class="sig-name descname"><span class="pre">read_from_kit_slot5</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">firmware_driver</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pytrustplatform.compressed_cert_decoder.CompressedCertificateData.read_from_kit_slot5" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read slot 5 data from a kit
+Slot 5 is only readable if the ECC is not in [MAH1H, MAH4I]</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>firmware_driver</strong> – Protocol driver instance for communicating with firmware on the MCU</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pytrustplatform.compressed_cert_decoder.DeviceCertificateRepresentation">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pytrustplatform.compressed_cert_decoder.</span></span><span class="sig-name descname"><span class="pre">DeviceCertificateRepresentation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">compressed_certificate_data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pytrustplatform.compressed_cert_decoder.DeviceCertificateRepresentation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#pytrustplatform.compressed_cert_decoder.CertificateRepresentation" title="pytrustplatform.compressed_cert_decoder.CertificateRepresentation"><code class="xref py py-class docutils literal notranslate"><span class="pre">CertificateRepresentation</span></code></a></p>
+<p>Representation of a device certificate</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pytrustplatform.compressed_cert_decoder.SignerCertificateRepresentation">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pytrustplatform.compressed_cert_decoder.</span></span><span class="sig-name descname"><span class="pre">SignerCertificateRepresentation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">compressed_certificate_data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pytrustplatform.compressed_cert_decoder.SignerCertificateRepresentation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#pytrustplatform.compressed_cert_decoder.CertificateRepresentation" title="pytrustplatform.compressed_cert_decoder.CertificateRepresentation"><code class="xref py py-class docutils literal notranslate"><span class="pre">CertificateRepresentation</span></code></a></p>
+<p>Representation of a signer certificate</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pytrustplatform.compressed_cert_decoder.create_key_identifier">
+<span class="sig-prename descclassname"><span class="pre">pytrustplatform.compressed_cert_decoder.</span></span><span class="sig-name descname"><span class="pre">create_key_identifier</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pubkey</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pytrustplatform.compressed_cert_decoder.create_key_identifier" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create the key identifier.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>pubkey</strong> (<em>bytearray</em>) – Public key from which the key identifier should be derived.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-pytrustplatform.device_cert_builder">
+<span id="device-certificate-builder"></span><h2>Device certificate builder<a class="headerlink" href="#module-pytrustplatform.device_cert_builder" title="Permalink to this heading">¶</a></h2>
+<p>Device certificate builder</p>
+<p>This module supports building device certificates from device Certificate Signing Requests (CSR)</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="pytrustplatform.device_cert_builder.build_device_cert">
+<span class="sig-prename descclassname"><span class="pre">pytrustplatform.device_cert_builder.</span></span><span class="sig-name descname"><span class="pre">build_device_cert</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">firmware_driver</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">signer_ca_cert_file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">signer_ca_key_file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">csr_filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cert_filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">force</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pytrustplatform.device_cert_builder.build_device_cert" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build device certificate</p>
+<p>Uses serial number from ECC and Certificate Signing Request (CSR) to generate a device certificate
+The certificate is written to file and returned</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>firmware_driver</strong> – Protocol driver instance for communicating with firmware on the MCU</p></li>
+<li><p><strong>signer_ca_cert_file</strong> (<em>str</em>) – File containing signer Certificate Authority certificate</p></li>
+<li><p><strong>signer_ca_key_file</strong> (<em>str</em>) – File containing signer Certificate Authority private key</p></li>
+<li><p><strong>csr_filename</strong> (<em>str</em>) – Name of file to write the generated CSR to.</p></li>
+<li><p><strong>cert_filename</strong> (<em>str</em>) – Name of file to write the generated certificate to</p></li>
+<li><p><strong>force</strong> (<em>bool</em>) – Force creating new certificate overwriting pre-existing output file</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Device certificate</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">cryptography.x509.Certificate</span></code> object</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#pytrustplatform.pytrust_errors.PytrustCertificateError" title="pytrustplatform.pytrust_errors.PytrustCertificateError"><strong>PytrustCertificateError</strong></a> – If something is wrong with the CSR signature</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pytrustplatform.device_cert_builder.build_device_csr">
+<span class="sig-prename descclassname"><span class="pre">pytrustplatform.device_cert_builder.</span></span><span class="sig-name descname"><span class="pre">build_device_csr</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">firmware_driver</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">csr_filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">common_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">force</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">org_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">country</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pytrustplatform.device_cert_builder.build_device_csr" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build device Certificate Signing Request</p>
+<p>Build a device CSR from a template.  The CSR is used when building a device certificate.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>firmware_driver</strong> – Protocol driver instance for communicating with firmware on the MCU</p></li>
+<li><p><strong>csr_filename</strong> (<em>str</em>) – Name of file to write the generated CSR to.</p></li>
+<li><p><strong>common_name</strong> – Subject Common Name (CN) to use in the CSR.  This is typically a unique name or ID for this
+device</p></li>
+<li><p><strong>org_name</strong> – Subject Organization Name (O) to use in this CSR. If not specified, predefined ORG_NAME will be used.</p></li>
+<li><p><strong>force</strong> (<em>bool</em>) – Force creating new certificate overwriting pre-existing output file</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Device Certificate Signing Request</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>class:<cite>cryptography.x509.CertificateSigningRequest</cite> object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pytrustplatform.device_cert_builder.device_cert_sn">
+<span class="sig-prename descclassname"><span class="pre">pytrustplatform.device_cert_builder.</span></span><span class="sig-name descname"><span class="pre">device_cert_sn</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">builder</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pytrustplatform.device_cert_builder.device_cert_sn" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate Certificate serial number</p>
+<p>Cert serial number is the SHA256(Subject public key + Encoded dates)
+:param size: Serial number length in bytes
+:type size: int
+:param builder: x509 certificate builder
+:type builder: <code class="xref py py-class docutils literal notranslate"><span class="pre">cryptography.x509.CertificateBuilder</span></code> object
+:return: Certificate serial number
+:rtype: int</p>
+</dd></dl>
+
+</section>
+<section id="module-pytrustplatform.ecc_cert_builder">
+<span id="ecc-certificate-builder"></span><h2>ECC certificate builder<a class="headerlink" href="#module-pytrustplatform.ecc_cert_builder" title="Permalink to this heading">¶</a></h2>
+<p>Certificate builder for ATECC608 certificates</p>
+<p>This module supports building certificates from templates and data fetched from ECC compressed certificates</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="pytrustplatform.ecc_cert_builder.EccCertificateBuilder">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pytrustplatform.ecc_cert_builder.</span></span><span class="sig-name descname"><span class="pre">EccCertificateBuilder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cert_pem</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pytrustplatform.ecc_cert_builder.EccCertificateBuilder" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Certificate builder for ATECC608 certificates.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="pytrustplatform.ecc_cert_builder.EccCertificateBuilder.add_signature">
+<span class="sig-name descname"><span class="pre">add_signature</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">signature</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pytrustplatform.ecc_cert_builder.EccCertificateBuilder.add_signature" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pytrustplatform.ecc_cert_builder.EccCertificateBuilder.set_pubkey">
+<span class="sig-name descname"><span class="pre">set_pubkey</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pubkey</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pytrustplatform.ecc_cert_builder.EccCertificateBuilder.set_pubkey" title="Permalink to this definition">¶</a></dt>
+<dd><p>TBD the from_coords does not result in the expected outcome so we create the raw DER encoding
+that we load into the ECPointString class.</p>
+<dl class="simple">
+<dt>ecpoint = ECPointBitString().from_coords(int.from_bytes(pubkey[0:33], byteorder=’big’, signed=False),</dt><dd><p>int.from_bytes(pubkey[33:], byteorder=’big’, signed=False))</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pytrustplatform.ecc_cert_builder.EccCertificateBuilder.set_serial_number">
+<span class="sig-name descname"><span class="pre">set_serial_number</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">serial</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pytrustplatform.ecc_cert_builder.EccCertificateBuilder.set_serial_number" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the serial number in the certificate being built</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pytrustplatform.ecc_cert_builder.EccCertificateBuilder.set_validity_dates">
+<span class="sig-name descname"><span class="pre">set_validity_dates</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">validity_not_before</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">validity_not_after</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pytrustplatform.ecc_cert_builder.EccCertificateBuilder.set_validity_dates" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set validity dates in certificate.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>validity_not_before</strong> (<em>datetime</em>) – Date and time where certificate should note be valid before</p></li>
+<li><p><strong>validity_not_after</strong> (<em>datetime</em>) – Date and time where certificate should note be valid after</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pytrustplatform.ecc_cert_builder.Mah1hDeviceCertificateBuilder">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pytrustplatform.ecc_cert_builder.</span></span><span class="sig-name descname"><span class="pre">Mah1hDeviceCertificateBuilder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cert_pem</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pytrustplatform.ecc_cert_builder.Mah1hDeviceCertificateBuilder" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#pytrustplatform.ecc_cert_builder.EccCertificateBuilder" title="pytrustplatform.ecc_cert_builder.EccCertificateBuilder"><code class="xref py py-class docutils literal notranslate"><span class="pre">EccCertificateBuilder</span></code></a></p>
+<p>Build device certificate for ATECC608A-MAH1H</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="pytrustplatform.ecc_cert_builder.Mah1hDeviceCertificateBuilder.build">
+<span class="sig-name descname"><span class="pre">build</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pytrustplatform.ecc_cert_builder.Mah1hDeviceCertificateBuilder.build" title="Permalink to this definition">¶</a></dt>
+<dd><p>Builds the certificate</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pytrustplatform.ecc_cert_builder.Mah1hDeviceCertificateBuilder.set_authority_key_identifier">
+<span class="sig-name descname"><span class="pre">set_authority_key_identifier</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">akid</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pytrustplatform.ecc_cert_builder.Mah1hDeviceCertificateBuilder.set_authority_key_identifier" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the authority key identifier in the certificate being built</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pytrustplatform.ecc_cert_builder.Mah1hDeviceCertificateBuilder.set_issuer">
+<span class="sig-name descname"><span class="pre">set_issuer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">signer_id</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pytrustplatform.ecc_cert_builder.Mah1hDeviceCertificateBuilder.set_issuer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the issuer signer ID  in the certificate being built</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pytrustplatform.ecc_cert_builder.Mah1hSignerCertificateBuilder">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pytrustplatform.ecc_cert_builder.</span></span><span class="sig-name descname"><span class="pre">Mah1hSignerCertificateBuilder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cert_pem</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pytrustplatform.ecc_cert_builder.Mah1hSignerCertificateBuilder" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#pytrustplatform.ecc_cert_builder.EccCertificateBuilder" title="pytrustplatform.ecc_cert_builder.EccCertificateBuilder"><code class="xref py py-class docutils literal notranslate"><span class="pre">EccCertificateBuilder</span></code></a></p>
+<p>Build signer certificate for ATECC608A-MAH1H</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="pytrustplatform.ecc_cert_builder.Mah1hSignerCertificateBuilder.build">
+<span class="sig-name descname"><span class="pre">build</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pytrustplatform.ecc_cert_builder.Mah1hSignerCertificateBuilder.build" title="Permalink to this definition">¶</a></dt>
+<dd><p>Builds the certificate</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pytrustplatform.ecc_cert_builder.Mah1hSignerCertificateBuilder.set_subject">
+<span class="sig-name descname"><span class="pre">set_subject</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">signer_id</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pytrustplatform.ecc_cert_builder.Mah1hSignerCertificateBuilder.set_subject" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the subject in the certificate being built</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pytrustplatform.ecc_cert_builder.Mah1hSignerCertificateBuilder.set_subject_key_identifier">
+<span class="sig-name descname"><span class="pre">set_subject_key_identifier</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">skid</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pytrustplatform.ecc_cert_builder.Mah1hSignerCertificateBuilder.set_subject_key_identifier" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the subject key identifier in the certificate being built</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pytrustplatform.ecc_cert_builder.Mah1hSignerCertificateBuilder.set_validity_dates">
+<span class="sig-name descname"><span class="pre">set_validity_dates</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">validity_not_before</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">validity_not_after</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pytrustplatform.ecc_cert_builder.Mah1hSignerCertificateBuilder.set_validity_dates" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set validity dates in certificate.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>validity_not_before</strong> (<em>datetime</em>) – Date and time where certificate should note be valid before</p></li>
+<li><p><strong>validity_not_after</strong> (<em>datetime</em>) – Date and time where certificate should note be valid after</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pytrustplatform.ecc_cert_builder.Mah4iDeviceCertificateBuilder">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pytrustplatform.ecc_cert_builder.</span></span><span class="sig-name descname"><span class="pre">Mah4iDeviceCertificateBuilder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cert_pem</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pytrustplatform.ecc_cert_builder.Mah4iDeviceCertificateBuilder" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#pytrustplatform.ecc_cert_builder.TngDeviceCertificateBuilder" title="pytrustplatform.ecc_cert_builder.TngDeviceCertificateBuilder"><code class="xref py py-class docutils literal notranslate"><span class="pre">TngDeviceCertificateBuilder</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="pytrustplatform.ecc_cert_builder.Mah4iDeviceCertificateBuilder.build">
+<span class="sig-name descname"><span class="pre">build</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pytrustplatform.ecc_cert_builder.Mah4iDeviceCertificateBuilder.build" title="Permalink to this definition">¶</a></dt>
+<dd><p>Builds the certificate</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pytrustplatform.ecc_cert_builder.Mah4iSignerCertificateBuilder">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pytrustplatform.ecc_cert_builder.</span></span><span class="sig-name descname"><span class="pre">Mah4iSignerCertificateBuilder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cert_pem</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pytrustplatform.ecc_cert_builder.Mah4iSignerCertificateBuilder" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#pytrustplatform.ecc_cert_builder.TngSignerCertificateBuilder" title="pytrustplatform.ecc_cert_builder.TngSignerCertificateBuilder"><code class="xref py py-class docutils literal notranslate"><span class="pre">TngSignerCertificateBuilder</span></code></a></p>
+<p>Unused</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pytrustplatform.ecc_cert_builder.TngDeviceCertificateBuilder">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pytrustplatform.ecc_cert_builder.</span></span><span class="sig-name descname"><span class="pre">TngDeviceCertificateBuilder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cert_pem</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pytrustplatform.ecc_cert_builder.TngDeviceCertificateBuilder" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#pytrustplatform.ecc_cert_builder.EccCertificateBuilder" title="pytrustplatform.ecc_cert_builder.EccCertificateBuilder"><code class="xref py py-class docutils literal notranslate"><span class="pre">EccCertificateBuilder</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="pytrustplatform.ecc_cert_builder.TngDeviceCertificateBuilder.build">
+<span class="sig-name descname"><span class="pre">build</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pytrustplatform.ecc_cert_builder.TngDeviceCertificateBuilder.build" title="Permalink to this definition">¶</a></dt>
+<dd><p>Builds the certificate</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pytrustplatform.ecc_cert_builder.TngDeviceCertificateBuilder.set_authority_key_identifier">
+<span class="sig-name descname"><span class="pre">set_authority_key_identifier</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">akid</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extension_index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">4</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pytrustplatform.ecc_cert_builder.TngDeviceCertificateBuilder.set_authority_key_identifier" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the authority key identifier in the certificate being built</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pytrustplatform.ecc_cert_builder.TngDeviceCertificateBuilder.set_issuer">
+<span class="sig-name descname"><span class="pre">set_issuer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">signer_id</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pytrustplatform.ecc_cert_builder.TngDeviceCertificateBuilder.set_issuer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the issuer in the certificate being built</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pytrustplatform.ecc_cert_builder.TngDeviceCertificateBuilder.set_mac_address">
+<span class="sig-name descname"><span class="pre">set_mac_address</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">eui48</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'FFFFFFFFFFFFFFFF'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pytrustplatform.ecc_cert_builder.TngDeviceCertificateBuilder.set_mac_address" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the MAC address in the certificate being built</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pytrustplatform.ecc_cert_builder.TngDeviceCertificateBuilder.set_subject">
+<span class="sig-name descname"><span class="pre">set_subject</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">serial_number</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pytrustplatform.ecc_cert_builder.TngDeviceCertificateBuilder.set_subject" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the subject in the certificate being built</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pytrustplatform.ecc_cert_builder.TngDeviceCertificateBuilder.set_subject_key_identifier">
+<span class="sig-name descname"><span class="pre">set_subject_key_identifier</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">skid</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extension_index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pytrustplatform.ecc_cert_builder.TngDeviceCertificateBuilder.set_subject_key_identifier" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the subject key identifier in the certificate being built</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pytrustplatform.ecc_cert_builder.TngSignerCertificateBuilder">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pytrustplatform.ecc_cert_builder.</span></span><span class="sig-name descname"><span class="pre">TngSignerCertificateBuilder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cert_pem</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pytrustplatform.ecc_cert_builder.TngSignerCertificateBuilder" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#pytrustplatform.ecc_cert_builder.EccCertificateBuilder" title="pytrustplatform.ecc_cert_builder.EccCertificateBuilder"><code class="xref py py-class docutils literal notranslate"><span class="pre">EccCertificateBuilder</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="pytrustplatform.ecc_cert_builder.TngSignerCertificateBuilder.build">
+<span class="sig-name descname"><span class="pre">build</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pytrustplatform.ecc_cert_builder.TngSignerCertificateBuilder.build" title="Permalink to this definition">¶</a></dt>
+<dd><p>Builds the certificate</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pytrustplatform.ecc_cert_builder.TngSignerCertificateBuilder.set_subject">
+<span class="sig-name descname"><span class="pre">set_subject</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">signer_id</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pytrustplatform.ecc_cert_builder.TngSignerCertificateBuilder.set_subject" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the subject in the certificate being built</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pytrustplatform.ecc_cert_builder.TngSignerCertificateBuilder.set_subject_key_identifier">
+<span class="sig-name descname"><span class="pre">set_subject_key_identifier</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">skid</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pytrustplatform.ecc_cert_builder.TngSignerCertificateBuilder.set_subject_key_identifier" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the subject key identifier in the certificate being built</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pytrustplatform.ecc_cert_builder.build_certs_from_ecc">
+<span class="sig-prename descclassname"><span class="pre">pytrustplatform.ecc_cert_builder.</span></span><span class="sig-name descname"><span class="pre">build_certs_from_ecc</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">firmware_driver</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">signer_cert_filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device_cert_filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device_cert_template</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">signer_cert_template</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">force</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pytrustplatform.ecc_cert_builder.build_certs_from_ecc" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build device and signer certificates from compressed certificates read out from the ECC device</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>firmware_driver</strong> – Protocol driver instance for communicating with firmware on the MCU</p></li>
+<li><p><strong>signer_cert_filename</strong> (<em>str</em>) – Name of file to write the generated signer certificate to.
+Optional. If set to None no certificate file will be created.</p></li>
+<li><p><strong>device_cert_filename</strong> (<em>str</em>) – Name of file to write the generated device certificate to.
+Optional. If set to None no certificate will be created</p></li>
+<li><p><strong>device_cert_template</strong> (<em>str</em><em> (</em><em>path</em><em>)</em>) – File with device certificate template.  Optional.  If set to None a built in
+template will be used</p></li>
+<li><p><strong>signer_cert_template</strong> (<em>str</em><em> (</em><em>path</em><em>)</em>) – File with signer certificate template.  Optional.  If set to None a built in
+template will be used</p></li>
+<li><p><strong>force</strong> (<em>bool</em>) – Force creating new certificates overwriting pre-existing output file</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>device_certificate, signer_certificate</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">cryptography.x509.Certificate</span></code> objects</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-pytrustplatform.ecc_types">
+<span id="ecc-type-utilities"></span><h2>ECC type utilities<a class="headerlink" href="#module-pytrustplatform.ecc_types" title="Permalink to this heading">¶</a></h2>
+<p>Helper for differentiating between various types of ECC devices</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="pytrustplatform.ecc_types.classify_ecc_type">
+<span class="sig-prename descclassname"><span class="pre">pytrustplatform.ecc_types.</span></span><span class="sig-name descname"><span class="pre">classify_ecc_type</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ecc_serial_number</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ecc_otp_values</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pytrustplatform.ecc_types.classify_ecc_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Classifies the ECC type based on input parameters, returning a list of likely matches.
+Possible types to classify:
+Trust&amp;Go: ‘tng’
+Trust&amp;Flex: ‘tflx’
+Trust custom: ‘custom’
+MAH4I: ‘mah4i’
+MAH1H: ‘mah1h’</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ecc_serial_number</strong> – serial number read from the ECC</p></li>
+<li><p><strong>ecc_otp_values</strong> – optional OTP area contents</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a list of likely matches</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-pytrustplatform.verification_cert_builder">
+<span id="verification-certificate-builder"></span><h2>Verification certificate builder<a class="headerlink" href="#module-pytrustplatform.verification_cert_builder" title="Permalink to this heading">¶</a></h2>
+<p>Verification certificate builder</p>
+<p>This module supports building verification certificates
+typically used for signer Certificate Authority (CA) verification</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="pytrustplatform.verification_cert_builder.build_verification_cert">
+<span class="sig-prename descclassname"><span class="pre">pytrustplatform.verification_cert_builder.</span></span><span class="sig-name descname"><span class="pre">build_verification_cert</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">signer_ca_cert_file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">signer_ca_key_file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subject_cn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verification_cert_filename</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pytrustplatform.verification_cert_builder.build_verification_cert" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build verification certificate</p>
+<p>The verification certificate is typically used to verify a Certificate Authority (CA) when registering the CA in
+a cloud provider.  The verification certificate is written to file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>signer_ca_cert_file</strong> (<em>str</em>) – File containing signer Certificate Authority certificate</p></li>
+<li><p><strong>signer_ca_key_file</strong> (<em>str</em>) – File containing signer Certificate Authority private key</p></li>
+<li><p><strong>subject_cn</strong> – Subject Common Name (CN) for the verification certificate.  For AWS this is the registration
+code required when registering a CA certificate (signer)</p></li>
+<li><p><strong>verification_cert_filename</strong> (<em>str</em>) – Name (path) of file to write verification certificate to</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Verification certificate object</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">cryptography.x509.Certificate</span></code> object</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-pytrustplatform.manifest.manifest_functions">
+<span id="manifest-functions"></span><h2>Manifest functions<a class="headerlink" href="#module-pytrustplatform.manifest.manifest_functions" title="Permalink to this heading">¶</a></h2>
+<p>pytrustplatform manifest functions</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="pytrustplatform.manifest.manifest_functions.create_manifest_from_certs">
+<span class="sig-prename descclassname"><span class="pre">pytrustplatform.manifest.manifest_functions.</span></span><span class="sig-name descname"><span class="pre">create_manifest_from_certs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">manifest</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">manifest_signer_cert</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">manifest_signer_key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device_cert</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">signer_cert</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ecc_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pytrustplatform.manifest.manifest_functions.create_manifest_from_certs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a manifest based on device and signer certificates</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>manifest</strong> (<em>str</em>) – Manifest file name</p></li>
+<li><p><strong>manifest_signer_cert</strong> (<em>str</em>) – Manifest signer certificate path</p></li>
+<li><p><strong>manifest_signer_key</strong> (<em>str</em>) – Manifest signer private key path</p></li>
+<li><p><strong>device_cert</strong> (<em>str</em>) – Device certificate path</p></li>
+<li><p><strong>signer_cert</strong> (<em>str</em>) – Signer certificate path</p></li>
+<li><p><strong>ecc_type</strong> (<em>str</em>) – Type of secure element. Last part of the order code e.g. TNGOTLS or TFLXTLS</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pytrustplatform.manifest.manifest_functions.create_manifest_from_secure_element">
+<span class="sig-prename descclassname"><span class="pre">pytrustplatform.manifest.manifest_functions.</span></span><span class="sig-name descname"><span class="pre">create_manifest_from_secure_element</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">manifest</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">manifest_signer_cert</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">manifest_signer_key</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pytrustplatform.manifest.manifest_functions.create_manifest_from_secure_element" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a manifest from a secure element.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>manifest</strong> (<em>str</em>) – Manifest file name</p></li>
+<li><p><strong>manifest_signer_cert</strong> (<em>str</em>) – Manifest signer certificate path</p></li>
+<li><p><strong>manifest_signer_key</strong> (<em>str</em>) – Manifest signer private key path</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pytrustplatform.manifest.manifest_functions.extract_certificates">
+<span class="sig-prename descclassname"><span class="pre">pytrustplatform.manifest.manifest_functions.</span></span><span class="sig-name descname"><span class="pre">extract_certificates</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">manifest</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unique_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key_index</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cert_indexes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file_names</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'common-name'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outdir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pytrustplatform.manifest.manifest_functions.extract_certificates" title="Permalink to this definition">¶</a></dt>
+<dd><p>Extracts certificates from secure elements in a manifest</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>manifest</strong> (<em>str</em><em>, </em><em>list</em><em>, </em><em>bytes</em><em>, </em><em>bytearray</em>) – Manifest</p></li>
+<li><p><strong>unique_id</strong> (<em>str</em><em>, </em><em>optional</em>) – If provided the certificates will only be extracted for the secure element with
+the same unique ID, defaults to None</p></li>
+<li><p><strong>key_index</strong> (<em>int</em><em>, </em><em>optional</em>) – Certificates correspond to a key in the secure element and this index defines
+for which key the certificates should be extracted, defaults to 0</p></li>
+<li><p><strong>cert_indexes</strong> (<em>list</em><em>, </em><em>optional</em>) – Defines which certificates in the chain should be extracted. Index 0 is the
+first certificate in the chain (device certificate), subsequent certificates
+will be the “CA” certificates used to verify the previous one (e.g. index 1
+is the signer certificate that can verify the device certificate at index 0.
+If several certificates should be extracted add their index to the list e.g. [0,1],
+defaults to [0]</p></li>
+<li><p><strong>file_names</strong> (<em>str</em><em>, </em><em>optional</em>) – File name of the extracted certificates, either “common-name” which uses the
+certificate subject common name as file name, or “fingerprint” which uses the
+fingerprint of the certificate as file name (SHA256 of cert in DER format),
+defaults to “common-name”</p></li>
+<li><p><strong>outdir</strong> (<em>str</em><em>, </em><em>optional</em>) – Output folder where extracted certificates should be stored, defaults to None which will
+put the certificate in the folder from which the script was executed.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pytrustplatform.manifest.manifest_functions.extract_certificates_from_secure_element">
+<span class="sig-prename descclassname"><span class="pre">pytrustplatform.manifest.manifest_functions.</span></span><span class="sig-name descname"><span class="pre">extract_certificates_from_secure_element</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">secure_element</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key_index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cert_indexes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file_names</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'common-name'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outdir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pytrustplatform.manifest.manifest_functions.extract_certificates_from_secure_element" title="Permalink to this definition">¶</a></dt>
+<dd><p>Extract certificates from a secure element</p>
+<p>Fetches certificates from a secure element and saves them in a directory.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>secure_element</strong> (<a class="reference internal" href="#pytrustplatform.manifest.manifest.SecureElement" title="pytrustplatform.manifest.manifest.SecureElement"><em>SecureElement</em></a><em> or </em><em>any subclass thereof</em>) – Secure element</p></li>
+<li><p><strong>key_index</strong> (<em>int</em><em>, </em><em>optional</em>) – Certificates correspond to a key in the secure element and this index defines
+for which key the certificates should be extracted, defaults to 0</p></li>
+<li><p><strong>cert_indexes</strong> (<em>list</em><em>, </em><em>optional</em>) – Defines which certificates in the chain should be extracted. Index 0 is the
+first certificate in the chain (device certificate), subsequent certificates
+will be the “CA” certificates used to verify the previous one (e.g. index 1
+is the signer certificate that can verify the device certificate at index 0.
+If several certificates should be extracted add their index to the list e.g. [0,1],
+defaults to [0]</p></li>
+<li><p><strong>file_names</strong> (<em>str</em><em>, </em><em>optional</em>) – File name of the extracted certificates, either “common-name” which uses the
+certificate subject common name as file name, or “fingerprint” which uses the
+fingerprint of the certificate as file name (SHA256 of cert in DER format),
+defaults to “common-name”</p></li>
+<li><p><strong>outdir</strong> (<em>str</em><em>, </em><em>optional</em>) – Output folder where extracted certificates should be stored, defaults to None which will
+put the certificate in the folder from which the script was executed.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pytrustplatform.manifest.manifest_functions.get_secure_element">
+<span class="sig-prename descclassname"><span class="pre">pytrustplatform.manifest.manifest_functions.</span></span><span class="sig-name descname"><span class="pre">get_secure_element</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">manifest</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">secure_element_id</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pytrustplatform.manifest.manifest_functions.get_secure_element" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a secure element from manifest by its unique ID</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>manifest</strong> (<em>str</em>) – Manifest file.</p></li>
+<li><p><strong>id</strong> (<em>str</em>) – Unique ID of the secure element (e.g. serial number of ATECC608)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pytrustplatform.manifest.manifest_functions.list_secure_element_ids">
+<span class="sig-prename descclassname"><span class="pre">pytrustplatform.manifest.manifest_functions.</span></span><span class="sig-name descname"><span class="pre">list_secure_element_ids</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">manifest</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pytrustplatform.manifest.manifest_functions.list_secure_element_ids" title="Permalink to this definition">¶</a></dt>
+<dd><p>List secure elements unique ID from manifest</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>manifest</strong> (<em>str</em>) – Manifest file</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>list of elements</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list of str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pytrustplatform.manifest.manifest_functions.list_secure_elements">
+<span class="sig-prename descclassname"><span class="pre">pytrustplatform.manifest.manifest_functions.</span></span><span class="sig-name descname"><span class="pre">list_secure_elements</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">manifest</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pytrustplatform.manifest.manifest_functions.list_secure_elements" title="Permalink to this definition">¶</a></dt>
+<dd><p>List secure elements from manifest</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>manifest</strong> (<em>list</em><em>, </em><em>str</em><em>, </em><em>bytes</em><em>, </em><em>bytearray</em>) – Manifest to parse for secure elements. Json encoded data (str, bytes, bytearray) or
+already decoded data (str).</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>list of elements</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list of str</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-pytrustplatform.manifest.manifest">
+<span id="manifest-library"></span><h2>Manifest library<a class="headerlink" href="#module-pytrustplatform.manifest.manifest" title="Permalink to this heading">¶</a></h2>
+<p>Microchip Secure Element Manifest library.</p>
+<p>Main library features:
+* building of manifests
+* verifying signed secured elements
+* searching in manifests
+* extracting secured elements from manifest</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="pytrustplatform.manifest.manifest.Manifest">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pytrustplatform.manifest.manifest.</span></span><span class="sig-name descname"><span class="pre">Manifest</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">manifest</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">signer_ca</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pytrustplatform.manifest.manifest.Manifest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Container for Microchip manifests.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="pytrustplatform.manifest.manifest.Manifest.append">
+<span class="sig-name descname"><span class="pre">append</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">secure_element</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pytrustplatform.manifest.manifest.Manifest.append" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a new entry in the Manifest</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>secure_element</strong> (<a class="reference internal" href="#pytrustplatform.manifest.manifest.SignedSecureElement" title="pytrustplatform.manifest.manifest.SignedSecureElement"><em>SignedSecureElement</em></a><em>, </em><a class="reference internal" href="#pytrustplatform.manifest.manifest.SecureElement" title="pytrustplatform.manifest.manifest.SecureElement"><em>SecureElement</em></a>) – Secure element or signed secure element.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pytrustplatform.manifest.manifest.Manifest.dumps">
+<span class="sig-name descname"><span class="pre">dumps</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pytrustplatform.manifest.manifest.Manifest.dumps" title="Permalink to this definition">¶</a></dt>
+<dd><p>Serialize the Manifest</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Manifest as pretty formatted json.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pytrustplatform.manifest.manifest.Manifest.find_secure_element">
+<span class="sig-name descname"><span class="pre">find_secure_element</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">identifier</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pytrustplatform.manifest.manifest.Manifest.find_secure_element" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find secure element in Manifest.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>identifier</strong> (<em>str</em>) – Secure element Identifier e.g. for ECC devices the hex encoded
+serial number in lower case letters.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Signed secure element if sucessfull otherwise None.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#pytrustplatform.manifest.manifest.SignedSecureElement" title="pytrustplatform.manifest.manifest.SignedSecureElement">SignedSecureElement</a> or None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pytrustplatform.manifest.manifest.ManifestSigner">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pytrustplatform.manifest.manifest.</span></span><span class="sig-name descname"><span class="pre">ManifestSigner</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cert</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pytrustplatform.manifest.manifest.ManifestSigner" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Manifest signer</p>
+<p>The manifest signer is used to verify manifest entries and to sign
+new entries.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="pytrustplatform.manifest.manifest.ManifestSigner.find_cert">
+<span class="sig-name descname"><span class="pre">find_cert</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fingerprint</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">VERIFICATION_CERTIFICATES_FOLDER</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pytrustplatform.manifest.manifest.ManifestSigner.find_cert" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find a certificate that matches a fingerprint and load it.</p>
+<p>The certificates in the path location must be in PEM format.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>fingerprint</strong> (<em>bytes</em><em>, </em><em>bytearray</em>) – Certificate fingerprint (SHA256 of a certificate in DER format)</p></li>
+<li><p><strong>path</strong> (<em>str</em><em>, </em><em>optional</em>) – Path to check for certificates, defaults to VERIFICATION_CERTIFICATES_FOLDER</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Certificate</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Certificate</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pytrustplatform.manifest.manifest.ManifestSigner.fingerprint">
+<span class="sig-name descname"><span class="pre">fingerprint</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">b''</span></em><a class="headerlink" href="#pytrustplatform.manifest.manifest.ManifestSigner.fingerprint" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pytrustplatform.manifest.manifest.ManifestSigner.load">
+<span class="sig-name descname"><span class="pre">load</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">certificate</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pytrustplatform.manifest.manifest.ManifestSigner.load" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize the manifest signer with new certificate and key</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>certificate</strong> (<em>Certificate</em>) – Manifest signer certificate</p></li>
+<li><p><strong>key</strong> (<em>bytes</em><em> or </em><em>bytearray</em><em>, </em><em>optional</em>) – Manifest signer key, defaults to None. Not needed when only reading manifests.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pytrustplatform.manifest.manifest.SecureElement">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pytrustplatform.manifest.manifest.</span></span><span class="sig-name descname"><span class="pre">SecureElement</span></span><a class="headerlink" href="#pytrustplatform.manifest.manifest.SecureElement" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Secure Element.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="pytrustplatform.manifest.manifest.SecureElement.get_certificate">
+<span class="sig-name descname"><span class="pre">get_certificate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key_index</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cert_index</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pytrustplatform.manifest.manifest.SecureElement.get_certificate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get certificate from secure element</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>cert_index</strong> (<em>int</em>) – Certificate index. If the public key has a certificate associated with it,
+then that certificate will be found at the first index position. Subsequent certificates
+in the array will be the CA certificates used to validate the previous one.</p></li>
+<li><p><strong>key_index</strong> (<em>int</em>) – Key the certificate(s) are associated with.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Certificate in BASE64 encoded (not unpdadded BASE64URL, and not PEM) strings of the DER
+certificate. This is defined in RFC7517 section 4.7.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pytrustplatform.manifest.manifest.SecureElement.set_provisioning_time">
+<span class="sig-name descname"><span class="pre">set_provisioning_time</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">time</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pytrustplatform.manifest.manifest.SecureElement.set_provisioning_time" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the secure element provisioning timestamp.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>time</strong> (<em>datetime</em>) – Date and time the secured element was provisioned in UTC.
+This is usually taken from the device certificate “not valid before” field.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pytrustplatform.manifest.manifest.SecureElement.set_publicJWK">
+<span class="sig-name descname"><span class="pre">set_publicJWK</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">kid</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kty</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">crv</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x5c</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pytrustplatform.manifest.manifest.SecureElement.set_publicJWK" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a public JSON Web Key (JWK) element to the secure element.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>kid</strong> (<em>str</em>) – Key ID string. This uniquely identifies this key on the secure element.
+For Crypto Authentication secure elements, this will be the slot number
+of the corresponding private key.</p></li>
+<li><p><strong>kty</strong> (<em>str</em><em>, </em><em>optional</em>) – Key type. Crypto Authentication secure elements only support “EC” public keys as defined in
+RFC 7518 section 6.1., defaults to ‘’.</p></li>
+<li><p><strong>crv</strong> (<em>str</em><em>, </em><em>optional</em>) – For elliptic curve keys, this is the curve name. Crypto Authentication secure elements
+only support the “P-256” curve as defined in RFC 7518 section 6.2.1.1., defaults to ‘’</p></li>
+<li><p><strong>x</strong> (<em>str</em><em>, </em><em>optional</em>) – Unpadded BASE64URL encoded x component of the public key. For elliptic curve keys, this is
+the encoded public key X integer as defined in RFC 7518 section 6.2.1.2., defaults to None</p></li>
+<li><p><strong>y</strong> (<em>str</em><em>, </em><em>optional</em>) – Unpadded BASE64URL encoded x component of the public key. For elliptic curve keys, this is the
+encoded public key Y integer as defined in RFC 7518 section 6.2.1.3., defaults to None</p></li>
+<li><p><strong>x5c</strong> (<em>str</em><em>, </em><em>optional</em>) – If the public key has a certificate associated with it, then that certificate will be
+found at the first position in this array. Subsequent certificates in the array will be
+the CA certificates used to validate the previous one. Certificates will be BASE64 encoded
+(not unpdadded BASE64URL) strings of the DER certificate. This is defined in
+RFC7517 section 4.7., defaults to None</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pytrustplatform.manifest.manifest.SecureElement.set_unique_id">
+<span class="sig-name descname"><span class="pre">set_unique_id</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">uniqueid</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pytrustplatform.manifest.manifest.SecureElement.set_unique_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the unique identifier for the secure element.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>uniqueid</strong> (<em>str</em><em>, </em><em>bytes</em>) – Unique identifier for the secure element. For Crypto Authentication devices, this is the 9
+byte device serial number or a lower-case hex string.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pytrustplatform.manifest.manifest.SignedSecureElement">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pytrustplatform.manifest.manifest.</span></span><span class="sig-name descname"><span class="pre">SignedSecureElement</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">secure_element</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">signer_ca</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pytrustplatform.manifest.manifest.SignedSecureElement" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Manifest Signed Secure Element</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="pytrustplatform.manifest.manifest.SignedSecureElement.encode">
+<span class="sig-name descname"><span class="pre">encode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">secure_element</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pytrustplatform.manifest.manifest.SignedSecureElement.encode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build the signed secured element.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>secure_element</strong> (<a class="reference internal" href="#pytrustplatform.manifest.manifest.SecureElement" title="pytrustplatform.manifest.manifest.SecureElement"><em>SecureElement</em></a><em> or </em><em>instance thereof.</em>) – Secure element to build the signed secured element.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Signed secured element</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pytrustplatform.manifest.manifest.SignedSecureElement.get_secure_element">
+<span class="sig-name descname"><span class="pre">get_secure_element</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">se_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pytrustplatform.manifest.manifest.SignedSecureElement.get_secure_element" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get secure element.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>se_type</strong> (<a class="reference internal" href="#pytrustplatform.manifest.manifest.SecureElement" title="pytrustplatform.manifest.manifest.SecureElement"><em>SecureElement</em></a><em> or </em><em>any sub-class e.g. TnGoSecureElement</em><em>, </em><em>optional</em>) – Secure element type e.g. TnGoTlsSecureElement, defaults to None.
+If no type is provided the partNumber field in the signed
+secured element is checked to find a match. If this is unsucessful
+a generic SecureElement will be returned.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Secure element.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#pytrustplatform.manifest.manifest.SecureElement" title="pytrustplatform.manifest.manifest.SecureElement">SecureElement</a> or subclass thereof</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pytrustplatform.manifest.manifest.SignedSecureElement.verify">
+<span class="sig-name descname"><span class="pre">verify</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pytrustplatform.manifest.manifest.SignedSecureElement.verify" title="Permalink to this definition">¶</a></dt>
+<dd><p>Verify the signed secured element.</p>
+<p>The function will check if the certificate provided through the class initialization matches the
+fingerprint of the signed secure element signer. If not, it will check the Microchip manifest signers
+that are included in this library for a matching fingerprint. If a matching certificate is found
+its public key is used to verify the signed secured element. If no match is found a ValueError is
+raised.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pytrustplatform.manifest.manifest.TcustomTlsSecureElement">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pytrustplatform.manifest.manifest.</span></span><span class="sig-name descname"><span class="pre">TcustomTlsSecureElement</span></span><a class="headerlink" href="#pytrustplatform.manifest.manifest.TcustomTlsSecureElement" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#pytrustplatform.manifest.manifest.TnGoTlsSecureElement" title="pytrustplatform.manifest.manifest.TnGoTlsSecureElement"><code class="xref py py-class docutils literal notranslate"><span class="pre">TnGoTlsSecureElement</span></code></a></p>
+<p>Trust and Go Secure Element.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pytrustplatform.manifest.manifest.TnFlexTlsSecureElement">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pytrustplatform.manifest.manifest.</span></span><span class="sig-name descname"><span class="pre">TnFlexTlsSecureElement</span></span><a class="headerlink" href="#pytrustplatform.manifest.manifest.TnFlexTlsSecureElement" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#pytrustplatform.manifest.manifest.TnGoTlsSecureElement" title="pytrustplatform.manifest.manifest.TnGoTlsSecureElement"><code class="xref py py-class docutils literal notranslate"><span class="pre">TnGoTlsSecureElement</span></code></a></p>
+<p>Trust and Go Secure Element.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pytrustplatform.manifest.manifest.TnGoTlsSecureElement">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pytrustplatform.manifest.manifest.</span></span><span class="sig-name descname"><span class="pre">TnGoTlsSecureElement</span></span><a class="headerlink" href="#pytrustplatform.manifest.manifest.TnGoTlsSecureElement" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#pytrustplatform.manifest.manifest.SecureElement" title="pytrustplatform.manifest.manifest.SecureElement"><code class="xref py py-class docutils literal notranslate"><span class="pre">SecureElement</span></code></a></p>
+<p>Trust and Go Secure Element.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="pytrustplatform.manifest.manifest.TnGoTlsSecureElement.build">
+<span class="sig-name descname"><span class="pre">build</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_provider</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pytrustplatform.manifest.manifest.TnGoTlsSecureElement.build" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build the secure element.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>data_provider</strong> (<em>ManifestDataProvider implementation</em>) – Data provider that implements ManifestDataProvider abstract class.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pytrustplatform.manifest.manifest.TnGoTlsSecureElement.get_device_certificate">
+<span class="sig-name descname"><span class="pre">get_device_certificate</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pytrustplatform.manifest.manifest.TnGoTlsSecureElement.get_device_certificate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the device certificate</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Device certificate in BASE64 format.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pytrustplatform.manifest.manifest.TnGoTlsSecureElement.get_signer_certificate">
+<span class="sig-name descname"><span class="pre">get_signer_certificate</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pytrustplatform.manifest.manifest.TnGoTlsSecureElement.get_signer_certificate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the signer certificate</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Signer certificate in BASE64 format.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pytrustplatform.manifest.manifest.load_cert">
+<span class="sig-prename descclassname"><span class="pre">pytrustplatform.manifest.manifest.</span></span><span class="sig-name descname"><span class="pre">load_cert</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cert_file_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">encoding</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'pem'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pytrustplatform.manifest.manifest.load_cert" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load certificate from file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>cert_file_name</strong> (<em>str</em>) – File name</p></li>
+<li><p><strong>encoding</strong> (<em>str</em><em>, </em><em>optional</em>) – Certificate encoding, either pem or der, defaults to “pem”</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Certificate object as defined in cryptography library.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Certificate object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pytrustplatform.manifest.manifest.urlsafe_b64decode_unpadded">
+<span class="sig-prename descclassname"><span class="pre">pytrustplatform.manifest.manifest.</span></span><span class="sig-name descname"><span class="pre">urlsafe_b64decode_unpadded</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pytrustplatform.manifest.manifest.urlsafe_b64decode_unpadded" title="Permalink to this definition">¶</a></dt>
+<dd><p>Unpadded url-safe base64 decoding</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>s</strong> (<em>str</em><em>, </em><em>bytes</em>) – Base64 encoded data without padding (no “=” padding)</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Decoded data</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bytes</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pytrustplatform.manifest.manifest.urlsafe_b64encode_unpadded">
+<span class="sig-prename descclassname"><span class="pre">pytrustplatform.manifest.manifest.</span></span><span class="sig-name descname"><span class="pre">urlsafe_b64encode_unpadded</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pytrustplatform.manifest.manifest.urlsafe_b64encode_unpadded" title="Permalink to this definition">¶</a></dt>
+<dd><p>Unpadded url-safe base64 encoding.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>s</strong> (<em>bytes</em>) – Data to encode.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Base64 encoded data without padding (no “=” padding)</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bytes</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-pytrustplatform.manifest.data_provider">
+<span id="manifest-data-provider"></span><h2>Manifest data provider<a class="headerlink" href="#module-pytrustplatform.manifest.data_provider" title="Permalink to this heading">¶</a></h2>
+<p>Data providers for manifest building</p>
+<p>The abstract class ManifestDataProvider describes an interface that the
+manifest library uses to obtain secure element data to build a new entry
+in a manifest.</p>
+<p>Implementations of the ManifestDataProvider are e.g.
+* EccDataProvider: Fetches data from a physical ECC device on supported tools.
+* CertsData: Extracts data from device and signer certificates.
+* EccTestData: Dummy test data provider.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="pytrustplatform.manifest.data_provider.CertsData">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pytrustplatform.manifest.data_provider.</span></span><span class="sig-name descname"><span class="pre">CertsData</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">device_cert</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">signer_cert</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pytrustplatform.manifest.data_provider.CertsData" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#pytrustplatform.manifest.data_provider.ManifestDataProvider" title="pytrustplatform.manifest.data_provider.ManifestDataProvider"><code class="xref py py-class docutils literal notranslate"><span class="pre">ManifestDataProvider</span></code></a></p>
+<p>Data provider for manifest generation based on certificates.</p>
+<p>Extracts data from a device and signer certificate and provides this to
+the manifest builder as input.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="pytrustplatform.manifest.data_provider.CertsData.get_certificate">
+<span class="sig-name descname"><span class="pre">get_certificate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">chain_index</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pytrustplatform.manifest.data_provider.CertsData.get_certificate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Provides the certificates for the manifest generation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>chain_index</strong> (<em>int</em>) – Position of the certificate in the chain e.g. 0=device certificate, 1=signer certificate</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>BASE64 encoded certificate or None</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pytrustplatform.manifest.data_provider.CertsData.get_provisioning_time">
+<span class="sig-name descname"><span class="pre">get_provisioning_time</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pytrustplatform.manifest.data_provider.CertsData.get_provisioning_time" title="Permalink to this definition">¶</a></dt>
+<dd><p>Provides the provisioning time of the secure element.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Provisioning time is extracted from device certificate not-valid-before field.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>datetime</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pytrustplatform.manifest.data_provider.CertsData.get_pubkey">
+<span class="sig-name descname"><span class="pre">get_pubkey</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pytrustplatform.manifest.data_provider.CertsData.get_pubkey" title="Permalink to this definition">¶</a></dt>
+<dd><p>Provides the public key from the certificate.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>index</strong> (<em>int</em>) – Index of the public key. Corresponds to the slot in ATECC608 secure element.
+Since a certificate only contains the key from slot 0 we will only return a key
+when the index is 0, otherwise None.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Public key or None. For EC keys raw X and Y coordinates e.g. 64 bytes for P256 curve coordinates
+(uncompressed format but without first byte).</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bytes</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pytrustplatform.manifest.data_provider.CertsData.get_serial_number">
+<span class="sig-name descname"><span class="pre">get_serial_number</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pytrustplatform.manifest.data_provider.CertsData.get_serial_number" title="Permalink to this definition">¶</a></dt>
+<dd><p>Provides secure element serial number</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Serial number in hex encoded lower case letters.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pytrustplatform.manifest.data_provider.EccDataProvider">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pytrustplatform.manifest.data_provider.</span></span><span class="sig-name descname"><span class="pre">EccDataProvider</span></span><a class="headerlink" href="#pytrustplatform.manifest.data_provider.EccDataProvider" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#pytrustplatform.manifest.data_provider.ManifestDataProvider" title="pytrustplatform.manifest.data_provider.ManifestDataProvider"><code class="xref py py-class docutils literal notranslate"><span class="pre">ManifestDataProvider</span></code></a></p>
+<p>Provides secure element data from ECC devices</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="pytrustplatform.manifest.data_provider.EccDataProvider.get_certificate">
+<span class="sig-name descname"><span class="pre">get_certificate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">chain_index</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pytrustplatform.manifest.data_provider.EccDataProvider.get_certificate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Provides the certificates for the manifest generation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>chain_index</strong> (<em>int</em>) – Position of the certificate in the chain e.g. 0=device certificate, 1=signer certificate</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>BASE64 encoded certificate or None</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pytrustplatform.manifest.data_provider.EccDataProvider.get_provisioning_time">
+<span class="sig-name descname"><span class="pre">get_provisioning_time</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pytrustplatform.manifest.data_provider.EccDataProvider.get_provisioning_time" title="Permalink to this definition">¶</a></dt>
+<dd><p>Provides the provisioning time of the secure element.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Provisioning time is extracted from device certificate not-valid-before field.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>datetime</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pytrustplatform.manifest.data_provider.EccDataProvider.get_pubkey">
+<span class="sig-name descname"><span class="pre">get_pubkey</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pytrustplatform.manifest.data_provider.EccDataProvider.get_pubkey" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get public key.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>index</strong> (<em>int</em>) – Key index of secure element.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Public key. For EC keys raw X and Y coordinates e.g. 64 bytes for P256 curve coordinates
+(uncompressed format but without first byte).</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bytes</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pytrustplatform.manifest.data_provider.EccDataProvider.get_secure_element">
+<span class="sig-name descname"><span class="pre">get_secure_element</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pytrustplatform.manifest.data_provider.EccDataProvider.get_secure_element" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the secure element</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Secure element instance</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>Subclass of SecureElement e.g. TnGoTlsSecureElement, TnFlexTlsSecureElement …</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pytrustplatform.manifest.data_provider.EccDataProvider.get_serial_number">
+<span class="sig-name descname"><span class="pre">get_serial_number</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pytrustplatform.manifest.data_provider.EccDataProvider.get_serial_number" title="Permalink to this definition">¶</a></dt>
+<dd><p>Provides secure element serial number</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Serial number in hex encoded lower case letters.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pytrustplatform.manifest.data_provider.EccTestData">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pytrustplatform.manifest.data_provider.</span></span><span class="sig-name descname"><span class="pre">EccTestData</span></span><a class="headerlink" href="#pytrustplatform.manifest.data_provider.EccTestData" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#pytrustplatform.manifest.data_provider.ManifestDataProvider" title="pytrustplatform.manifest.data_provider.ManifestDataProvider"><code class="xref py py-class docutils literal notranslate"><span class="pre">ManifestDataProvider</span></code></a></p>
+<p>Dummy data provider for testing.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="pytrustplatform.manifest.data_provider.EccTestData.get_certificate">
+<span class="sig-name descname"><span class="pre">get_certificate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">chain_index</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pytrustplatform.manifest.data_provider.EccTestData.get_certificate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Provides the certificates for the manifest generation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>chain_index</strong> (<em>int</em>) – Position of the certificate in the chain e.g. 0=device certificate, 1=signer certificate</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>BASE64 encoded certificate or None</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pytrustplatform.manifest.data_provider.EccTestData.get_provisioning_time">
+<span class="sig-name descname"><span class="pre">get_provisioning_time</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pytrustplatform.manifest.data_provider.EccTestData.get_provisioning_time" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get secure element provisioning time.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Provisioning time.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>datetime</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pytrustplatform.manifest.data_provider.EccTestData.get_pubkey">
+<span class="sig-name descname"><span class="pre">get_pubkey</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pytrustplatform.manifest.data_provider.EccTestData.get_pubkey" title="Permalink to this definition">¶</a></dt>
+<dd><p>Dummy public key.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>slot</strong> (<em>int</em>) – Key index.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Public key, 64 bytes.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bytes</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pytrustplatform.manifest.data_provider.EccTestData.get_secure_element">
+<span class="sig-name descname"><span class="pre">get_secure_element</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pytrustplatform.manifest.data_provider.EccTestData.get_secure_element" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the secure element</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Secure element instance</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>Subclass of SecureElement e.g. TnGoTlsSecureElement, TnFlexTlsSecureElement …</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pytrustplatform.manifest.data_provider.EccTestData.get_serial_number">
+<span class="sig-name descname"><span class="pre">get_serial_number</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pytrustplatform.manifest.data_provider.EccTestData.get_serial_number" title="Permalink to this definition">¶</a></dt>
+<dd><p>Dummy test serial number.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ECC serial number 9 bytes long</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>bytes</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pytrustplatform.manifest.data_provider.ManifestDataProvider">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pytrustplatform.manifest.data_provider.</span></span><span class="sig-name descname"><span class="pre">ManifestDataProvider</span></span><a class="headerlink" href="#pytrustplatform.manifest.data_provider.ManifestDataProvider" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></p>
+<p>ECC data provider abstract class.</p>
+<p>This class defines an interface that is used by the manifest library to
+build a SecureElement which then can be added to a manifest.
+Implementations of this class could be e.g. a dummy data provider for testing,
+a provider that gets ECC data via the Trust Platfrom development kit, or
+via any other development board.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="pytrustplatform.manifest.data_provider.ManifestDataProvider.get_certificate">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_certificate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">chain_index</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pytrustplatform.manifest.data_provider.ManifestDataProvider.get_certificate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Provides the certificates for the manifest generation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>chain_index</strong> (<em>int</em>) – Position of the certificate in the chain e.g. 0=device certificate, 1=signer certificate</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>BASE64 encoded certificate or None</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pytrustplatform.manifest.data_provider.ManifestDataProvider.get_pubkey">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_pubkey</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pytrustplatform.manifest.data_provider.ManifestDataProvider.get_pubkey" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get public key.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>index</strong> (<em>int</em>) – Key index of secure element.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Public key. For EC keys raw X and Y coordinates e.g. 64 bytes for P256 curve coordinates
+(uncompressed format but without first byte).</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bytes</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pytrustplatform.manifest.data_provider.ManifestDataProvider.get_serial_number">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_serial_number</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pytrustplatform.manifest.data_provider.ManifestDataProvider.get_serial_number" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the serial number of the crypto device</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Serial number.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>bytes</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-pytrustplatform.serialnumber">
+<span id="serial-number-utilities"></span><h2>Serial number utilities<a class="headerlink" href="#module-pytrustplatform.serialnumber" title="Permalink to this heading">¶</a></h2>
+<p>serial number utility functions</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="pytrustplatform.serialnumber.new_device_serialnumber">
+<span class="sig-prename descclassname"><span class="pre">pytrustplatform.serialnumber.</span></span><span class="sig-name descname"><span class="pre">new_device_serialnumber</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">device_serial_number</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">16</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">not_valid_before</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">not_valid_after</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">enc_dates</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pytrustplatform.serialnumber.new_device_serialnumber" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates serial number from SHA256(device SN [9 bytes] + encoded dates [3 bytes])</p>
+<p>Takes either not_valid_before and not_valid_after, or raw enc_dates. If both are provided the
+dates will have preference.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>size</strong> (<em>int</em>) – Size of the serial number max 32. 16 is used for ECC608 certificates.</p></li>
+<li><p><strong>not_valid_before</strong> (<em>datetime</em>) – Certificate not valid before date.</p></li>
+<li><p><strong>not_valid_after</strong> (<em>datetime</em>) – Certificate not valid after date.</p></li>
+<li><p><strong>enc_dates</strong> (<em>bytearray</em>) – Encoded dates from compressed certificate (3 bytes)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pytrustplatform.serialnumber.new_publickey_serialnumber">
+<span class="sig-prename descclassname"><span class="pre">pytrustplatform.serialnumber.</span></span><span class="sig-name descname"><span class="pre">new_publickey_serialnumber</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pubkey</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">16</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">not_valid_before</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">not_valid_after</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">enc_dates</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pytrustplatform.serialnumber.new_publickey_serialnumber" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create serial number from SHA256(Subject public key + Encoded dates)</p>
+<p>Takes either not_valid_before and not_valid_after, or raw enc_dates. If both are provided the
+dates will have preference.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>size</strong> (<em>int</em>) – Size of the serial number max 32. 16 is used for ECC608 certificates.</p></li>
+<li><p><strong>not_valid_before</strong> (<em>datetime</em>) – Certificate not valid before date.</p></li>
+<li><p><strong>not_valid_after</strong> (<em>datetime</em>) – Certificate not valid after date.</p></li>
+<li><p><strong>enc_dates</strong> (<em>bytearray</em>) – Encoded dates from compressed certificate (3 bytes)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pytrustplatform.serialnumber.new_random_serialnumber">
+<span class="sig-prename descclassname"><span class="pre">pytrustplatform.serialnumber.</span></span><span class="sig-name descname"><span class="pre">new_random_serialnumber</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">16</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pytrustplatform.serialnumber.new_random_serialnumber" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a positive, non-trimmable serial number for X.509 certificates</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>size</strong> (<em>int</em>) – Size of the serial number max 32. 16 is used for ECC608 certificates.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-pytrustplatform.pytrust_errors">
+<span id="errors"></span><h2>Errors<a class="headerlink" href="#module-pytrustplatform.pytrust_errors" title="Permalink to this heading">¶</a></h2>
+<p>pytrustplatform specific exceptions</p>
+<dl class="py exception">
+<dt class="sig sig-object py" id="pytrustplatform.pytrust_errors.PytrustCertificateError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pytrustplatform.pytrust_errors.</span></span><span class="sig-name descname"><span class="pre">PytrustCertificateError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">code</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pytrustplatform.pytrust_errors.PytrustCertificateError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#pytrustplatform.pytrust_errors.PytrustError" title="pytrustplatform.pytrust_errors.PytrustError"><code class="xref py py-class docutils literal notranslate"><span class="pre">PytrustError</span></code></a></p>
+<p>Signals a problem with a certificate</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="pytrustplatform.pytrust_errors.PytrustError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pytrustplatform.pytrust_errors.</span></span><span class="sig-name descname"><span class="pre">PytrustError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">code</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pytrustplatform.pytrust_errors.PytrustError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
+<p>Base class for all pytrustplatform specific exceptions</p>
+</dd></dl>
+
+</section>
+<section id="module-pytrustplatform">
+<span id="pytrustplatform"></span><h2>pytrustplatform<a class="headerlink" href="#module-pytrustplatform" title="Permalink to this heading">¶</a></h2>
+<section id="python-trust-platform-utilities">
+<h3>Python Trust Platform utilities<a class="headerlink" href="#python-trust-platform-utilities" title="Permalink to this heading">¶</a></h3>
+<p>pytrustplatform is a collection of utilities for interacting with Microchip
+Trust Platform and Microchip CryptoAuthentication(TM) devices</p>
+</section>
+<section id="overview">
+<h3>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">¶</a></h3>
+<dl class="simple">
+<dt>pytrustplatform is available:</dt><dd><ul class="simple">
+<li><p>install using pip from pypi: <a class="reference external" href="https://pypi.org/project/pytrustplatform">https://pypi.org/project/pytrustplatform</a></p></li>
+<li><p>browse source code on github: <a class="reference external" href="https://github.com/microchip-pic-avr-tools/pytrustplatform">https://github.com/microchip-pic-avr-tools/pytrustplatform</a></p></li>
+<li><p>read API documentation on github: <a class="reference external" href="https://microchip-pic-avr-tools.github.io/pytrustplatform">https://microchip-pic-avr-tools.github.io/pytrustplatform</a></p></li>
+<li><p>read the changelog on github: <a class="reference external" href="https://github.com/microchip-pic-avr-tools/pytrustplatform/blob/main/CHANGELOG.md">https://github.com/microchip-pic-avr-tools/pytrustplatform/blob/main/CHANGELOG.md</a></p></li>
+</ul>
+</dd>
+</dl>
+</section>
+<section id="fetching-data-from-a-certificate">
+<h3>Fetching data from a certificate<a class="headerlink" href="#fetching-data-from-a-certificate" title="Permalink to this heading">¶</a></h3>
+<p>The cert_get_data module contains functions to fetch various information from
+a certificate.</p>
+<p>Fetch the Subject Key Identifier from a certificate</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pytrustplatform.cert_get_data</span> <span class="kn">import</span> <span class="n">cert_get_skid</span>
+<span class="n">skid</span> <span class="o">=</span> <span class="n">cert_get_skid</span><span class="p">(</span><span class="s2">&quot;mycertificate.crt&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Fetch Common Name from a certificate:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pytrustplatform.cert_get_data</span> <span class="kn">import</span> <span class="n">cert_get_common_name</span>
+<span class="n">common_name</span> <span class="o">=</span> <span class="n">cert_get_common_name</span><span class="p">(</span><span class="s2">&quot;mycertificate.crt&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Create Fingerprint from a certificate:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pytrustplatform.cert_get_data</span> <span class="kn">import</span> <span class="n">create_cert_fingerprint</span>
+<span class="n">fingerprint</span> <span class="o">=</span> <span class="n">create_cert_fingerprint</span><span class="p">(</span><span class="s2">&quot;mycertificate.crt&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="create-device-certificate-and-csr">
+<h3>Create device certificate and CSR<a class="headerlink" href="#create-device-certificate-and-csr" title="Permalink to this heading">¶</a></h3>
+<p>The device_cert_builder module contains functions to create device certificates
+and Certificate Signing Requests (CSR) for a connected Microchip IoT kit.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ask pykitcommander to setup the kit with the appropriate firmware</span>
+<span class="kn">from</span> <span class="nn">pykitcommander.kitprotocols</span> <span class="kn">import</span> <span class="n">setup_kit</span>
+<span class="n">info</span> <span class="o">=</span> <span class="n">setup_kit</span><span class="p">(</span><span class="s1">&#39;iotprovision&#39;</span><span class="p">)</span>
+
+<span class="c1"># Collect required info to continue:</span>
+<span class="n">port</span> <span class="o">=</span> <span class="n">info</span><span class="p">[</span><span class="s1">&#39;port&#39;</span><span class="p">]</span>
+<span class="n">baud</span> <span class="o">=</span> <span class="n">info</span><span class="p">[</span><span class="s1">&#39;protocol_baud&#39;</span><span class="p">]</span>
+<span class="n">protocol</span> <span class="o">=</span> <span class="n">info</span><span class="p">[</span><span class="s1">&#39;protocol_class&#39;</span><span class="p">]</span>
+
+<span class="c1"># Build the device certificate.  A CSR will be generated as part of the process.</span>
+<span class="c1"># Both will be written to file.  The serial port connection uses pyserial, in a</span>
+<span class="c1"># context manager to ensure the port is closed after use</span>
+<span class="kn">from</span> <span class="nn">serial</span> <span class="kn">import</span> <span class="n">Serial</span>
+<span class="k">with</span> <span class="n">Serial</span><span class="p">(</span><span class="n">port</span><span class="o">=</span><span class="n">port</span><span class="p">,</span> <span class="n">baudrate</span><span class="o">=</span><span class="n">baud</span><span class="p">)</span> <span class="k">as</span> <span class="n">serial_connection</span><span class="p">:</span>
+    <span class="n">firmware_driver</span> <span class="o">=</span> <span class="n">protocol</span><span class="p">(</span><span class="n">serial_connection</span><span class="p">)</span>
+    <span class="kn">from</span> <span class="nn">pytrustplatform.device_cert_builder</span> <span class="kn">import</span> <span class="n">build_device_cert</span>
+    <span class="n">device_cert</span> <span class="o">=</span> <span class="n">build_device_cert</span><span class="p">(</span><span class="n">firmware_driver</span><span class="p">,</span>
+                                    <span class="s2">&quot;my_signer-ca.crt&quot;</span><span class="p">,</span>
+                                    <span class="s2">&quot;my_signer-ca.key&quot;</span><span class="p">,</span>
+                                    <span class="s2">&quot;generated.csr&quot;</span><span class="p">,</span>
+                                    <span class="s2">&quot;generated_device.crt&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="create-device-and-signer-certificate-from-ecc-data">
+<h3>Create device and signer certificate from ECC data<a class="headerlink" href="#create-device-and-signer-certificate-from-ecc-data" title="Permalink to this heading">¶</a></h3>
+<p>The ecc_cert_builder module contains functions to create device certificates
+and signer certificates from data collected from an ECC device of a connected
+Microchip IoT kit.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ask pykitcommander to setup the kit with the appropriate firmware</span>
+<span class="kn">from</span> <span class="nn">pykitcommander.kitprotocols</span> <span class="kn">import</span> <span class="n">setup_kit</span>
+<span class="n">info</span> <span class="o">=</span> <span class="n">setup_kit</span><span class="p">(</span><span class="s1">&#39;iotprovision&#39;</span><span class="p">)</span>
+
+<span class="c1"># Collect required info to continue:</span>
+<span class="n">port</span> <span class="o">=</span> <span class="n">info</span><span class="p">[</span><span class="s1">&#39;port&#39;</span><span class="p">]</span>
+<span class="n">baud</span> <span class="o">=</span> <span class="n">info</span><span class="p">[</span><span class="s1">&#39;protocol_baud&#39;</span><span class="p">]</span>
+<span class="n">protocol</span> <span class="o">=</span> <span class="n">info</span><span class="p">[</span><span class="s1">&#39;protocol_class&#39;</span><span class="p">]</span>
+
+<span class="c1"># Build the device certificate and signer certificate.  Both will be written to file.</span>
+<span class="c1"># The serial port connection uses pyserial, in a context manager to ensure the port is</span>
+<span class="c1"># closed after use</span>
+<span class="kn">from</span> <span class="nn">serial</span> <span class="kn">import</span> <span class="n">Serial</span>
+<span class="k">with</span> <span class="n">Serial</span><span class="p">(</span><span class="n">port</span><span class="o">=</span><span class="n">port</span><span class="p">,</span> <span class="n">baudrate</span><span class="o">=</span><span class="n">baud</span><span class="p">)</span> <span class="k">as</span> <span class="n">serial_connection</span><span class="p">:</span>
+    <span class="n">firmware_driver</span> <span class="o">=</span> <span class="n">protocol</span><span class="p">(</span><span class="n">serial_connection</span><span class="p">)</span>
+    <span class="kn">from</span> <span class="nn">pytrustplatform.ecc_cert_builder</span> <span class="kn">import</span> <span class="n">build_certs_from_ecc</span>
+    <span class="n">ecc_device_cert</span><span class="p">,</span> <span class="n">ecc_signer_cert</span> <span class="o">=</span> <span class="n">build_certs_from_ecc</span><span class="p">(</span><span class="n">firmware_driver</span><span class="p">,</span>
+                                                            <span class="s2">&quot;generated_signer.crt&quot;</span><span class="p">,</span>
+                                                            <span class="s2">&quot;generated_device.crt&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="create-verification-certificate">
+<h3>Create verification certificate<a class="headerlink" href="#create-verification-certificate" title="Permalink to this heading">¶</a></h3>
+<p>The verification_cert_builder module contains a function to create verification
+certificates.  A verification certificate is typically used when registering a
+Certificate Authority (CA) with a cloud provider.</p>
+<p>Create a verification certificate from a signer CA certificate and private key</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pytrustplatform.verification_cert_builder</span> <span class="kn">import</span> <span class="n">build_verification_cert</span>
+<span class="n">verification_cert</span> <span class="o">=</span> <span class="n">build_verification_cert</span><span class="p">(</span><span class="s2">&quot;my_signer-ca.crt&quot;</span><span class="p">,</span>
+                                            <span class="s2">&quot;my_signer-ca.key&quot;</span><span class="p">,</span>
+                                            <span class="s2">&quot;MY_REGCODE_0123456789&quot;</span><span class="p">,</span>
+                                            <span class="s2">&quot;generated_verification.crt&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="create-chain-of-trust">
+<h3>Create chain of trust<a class="headerlink" href="#create-chain-of-trust" title="Permalink to this heading">¶</a></h3>
+<p>The ca_create module contains functions to create a chain of trust.  Keys can be generated or already
+existing keys can be provided</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pytrustplatform.ca_create</span> <span class="kn">import</span> <span class="n">ca_create_root</span><span class="p">,</span> <span class="n">ca_create_signer_csr</span><span class="p">,</span> <span class="n">ca_create_signer</span>
+
+<span class="c1"># Create Root, generates root private key (if it does not exist) and root certificate</span>
+<span class="n">ca_create_root</span><span class="p">(</span><span class="s2">&quot;generated_root.key&quot;</span><span class="p">,</span> <span class="s2">&quot;generated_root.crt&quot;</span><span class="p">)</span>
+
+<span class="c1"># Create signer CA CSR and signer CA private key (if it does not exist)</span>
+<span class="n">ca_create_signer_csr</span><span class="p">(</span><span class="s2">&quot;generated_signer_ca.key&quot;</span><span class="p">,</span> <span class="s2">&quot;generated_signer_ca.csr&quot;</span><span class="p">)</span>
+
+<span class="c1"># Create signer certificate based on previously generated root key, root certificate and signer CSR</span>
+<span class="n">ca_create_signer</span><span class="p">(</span><span class="s2">&quot;generated_signer_ca.csr&quot;</span><span class="p">,</span>
+                 <span class="s2">&quot;generated_signer_ca.crt&quot;</span><span class="p">,</span>
+                 <span class="s2">&quot;generated_root.key&quot;</span><span class="p">,</span>
+                 <span class="s2">&quot;generated_root.crt&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="logging">
+<h3>Logging<a class="headerlink" href="#logging" title="Permalink to this heading">¶</a></h3>
+<p>This package uses the Python logging module for publishing log messages to
+library users.  A basic configuration can be used (see example below), but for
+best results a more thorough configuration is recommended in order to control
+the verbosity of output from dependencies in the stack which also use logging.
+See logging.yaml which is included in the package (although only used for CLI)</p>
+<p>Simple logging configuration example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">logging</span>
+<span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">%(levelname)s</span><span class="s2">: </span><span class="si">%(message)s</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">WARNING</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="dependencies">
+<h3>Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this heading">¶</a></h3>
+<p>pytrustplatform depends on pykitcommander to manage Microchip IoT kit firmware
+and connection.
+pytrustplatform depends on pyedbglib for its transport protocol.
+pyedbglib requires a USB transport library like libusb.
+See pyedbglib package for more information.</p>
+</section>
+</section>
+</section>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-wrapper">
+        <div class="footer" role="contentinfo">
+            © Copyright 2021, Microchip Technology Inc
+        </div>
+    </div>
+  </body>
+</html>
