@@ -15,7 +15,6 @@ from logging import getLogger
 from abc import ABC, abstractmethod
 from base64 import b64encode
 from serial import Serial
-from pykitcommander.kitprotocols import setup_kit
 from cryptography import x509
 from cryptography.hazmat.primitives import serialization
 
@@ -213,18 +212,16 @@ cn92R98CIQCGYpyiFYwWRb0Pg4wu8zLQk0O1/W/oJBxkxHAD5v3XGw==
 class EccDataProvider(ManifestDataProvider):
     """Provides secure element data from ECC devices
     """
-    def __init__(self):
+    def __init__(self, kit_info):
         self.device_cert = None
         self.signer_cert = None
         self.serial_connection = None
         self.logger = getLogger(__name__)
-        # Fetch a protocol object from pykitcommander
-        info = setup_kit('iotprovision')
 
         # Collect required info to continue:
-        port = info['port']
-        baud = info['protocol_baud']
-        protocol = info['protocol_class']
+        port = kit_info['port']
+        baud = kit_info['protocol_baud']
+        protocol = kit_info['protocol_class']
 
         self.serial_connection = Serial(port=port, baudrate=baud)
         self.firmware_driver = protocol(self.serial_connection)
@@ -285,8 +282,9 @@ class EccDataProvider(ManifestDataProvider):
         try:
             key = binascii.a2b_hex(self.firmware_driver.firmware_command("MC+ECC+GENPUBKEY", [f"{index}"]))
             assert len(key) == 64
-        except Exception:
-            self.logger.error("Could not generate public key from slot %i.", index)
+        except Exception as e:
+            # Failing on some slots expected for mah1h ECC variant, hence don't log error here
+            self.logger.debug("Could not generate public key from slot %i: %s", index, e)
             return None
         return key
 

@@ -1,0 +1,71 @@
+[build-system]
+# Starting from 62.3.0 setuptools added support for recursive wildcards for pacakge data includes
+requires = ["setuptools>=62.3.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pytrustplatform"
+authors = [
+    {name = "Microchip Technology", email = "support@microchip.com"}
+]
+description = "A collection of utilities for interacting with Microchip Trust Platform and Microchip CryptoAuthentication™ devices"
+license = {text = "MIT"}
+keywords = ['Microchip', 'AVR-IOT', 'PIC-IOT']
+requires-python = ">=3.8"
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "Topic :: Software Development :: Embedded Systems",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Operating System :: Microsoft :: Windows",
+    "Operating System :: POSIX :: Linux",
+    "Operating System :: MacOS",
+    "License :: OSI Approved :: MIT License"
+]
+
+dependencies = [
+    # External packages
+    "cryptography",
+    "asn1crypto",
+    "pytz",
+    "pyyaml",
+    "appdirs",
+    "pyserial",
+    "python-jose[cryptography]",
+
+    # Microchip packages
+    "pykitcommander>=2.7",
+    "pyedbglib>=2.22"
+]
+
+dynamic = ["readme", "version"]
+
+[tool.setuptools.dynamic]
+readme = {file = ["pypi.md", "CHANGELOG.md"], content-type = "text/markdown"}
+version = {attr = "pytrustplatform.__version__"}
+
+[project.urls]
+"Homepage" = "https://github.com/microchip-pic-avr-tools/pytrustplatform"
+
+[project.optional-dependencies]
+dev = ["pylint>=2.15"]
+test = ["mock", "pytest"]
+doc = [
+    # To avoid missing modules when generating documentation the mock module used by the tests is needed.
+    # The mock module could also be useful if some imports need to be mocked out when generating documentation.
+    "mock",
+    "sphinx"
+]
+
+[project.scripts]
+pytrust = "pytrustplatform.cli_pytrust:main"
+
+[tool.setuptools.packages.find]
+exclude = ["pytrustplatform.tests*", "doc*"]
+
+[tool.setuptools.package-data]
+pytrustplatform = ["logging.yaml", "certs/**/*.crt", "certs/**/*.csr", "manifest/**/*.crt"]

@@ -4,6 +4,7 @@ Manifest CLI utility entry point
 from .manifest.manifest_functions import create_manifest_from_certs, create_manifest_from_secure_element, get_secure_element
 from .manifest.manifest_functions import list_secure_element_ids, list_secure_elements, extract_certificates
 from .status_codes import STATUS_SUCCESS, STATUS_FAILURE
+from .cli_certificate_main import setup_kit_iotprovision
 
 def manifest_cli_handler(args):
     """
@@ -20,7 +21,8 @@ def manifest_cli_handler(args):
             return STATUS_FAILURE
         print(f"Manifest created: '{manifest_file}'")
     elif args.action == "create-from-secure-element":
-        manifest_file = create_manifest_from_secure_element(args.manifest, args.manifest_signer_cert, args.manifest_signer_key)
+        kit_info = setup_kit_iotprovision(args)
+        manifest_file = create_manifest_from_secure_element(args.manifest, args.manifest_signer_cert, args.manifest_signer_key, kit_info)
         if not manifest_file:
             print("Unable to create manifest")
             return STATUS_FAILURE

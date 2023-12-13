@@ -1,6 +1,13 @@
 # Changelog
 
-## [1.0] - September 2022
+## [1.1] - December 2023
+
+### Fixed
+- DSG-5629 pytrust manifest ignores --serial, --skip-target-programming and --port for create-from-secure-element command
+- DSG-5679 pytrust manifest logs error messages when not finding public keys in slots
+- DSG-6136 PEP-0440 compliance for pytrustplatform
+
+## [1.0.9] - September 2022
 
 ### Added
 - DSG-5347 Added `create-csr` action to `certificate` subcommand

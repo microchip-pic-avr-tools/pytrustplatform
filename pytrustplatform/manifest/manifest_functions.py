@@ -190,7 +190,7 @@ def create_manifest_from_certs(manifest, manifest_signer_cert, manifest_signer_k
         manifest_file.write(man.dumps())
     return manifest
 
-def create_manifest_from_secure_element(manifest, manifest_signer_cert, manifest_signer_key):
+def create_manifest_from_secure_element(manifest, manifest_signer_cert, manifest_signer_key, kit_info):
     """Create a manifest from a secure element.
 
     :param manifest: Manifest file name
@@ -199,12 +199,13 @@ def create_manifest_from_secure_element(manifest, manifest_signer_cert, manifest
     :type manifest_signer_cert: str
     :param manifest_signer_key: Manifest signer private key path
     :type manifest_signer_key: str
+    :param kit_info: Kit information from pykitcommander
     """
     with open(manifest_signer_cert, "rb") as cert_file:
         with open(manifest_signer_key, "rb") as key_file:
             manifest_signer = ManifestSigner(cert_file.read(), key=key_file.read())
     man = Manifest(signer_ca=manifest_signer)
-    data_provider = EccDataProvider()
+    data_provider = EccDataProvider(kit_info)
     se = data_provider.get_secure_element()
     man.append(se)
     with open(manifest, "w", encoding="utf-8") as manifest_file:

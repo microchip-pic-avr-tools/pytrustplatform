@@ -19,14 +19,8 @@ from .cli_manifest_main import manifest_cli_handler
 from .status_codes import STATUS_SUCCESS, STATUS_FAILURE
 from .ca_create import DEFAULT_ORGANIZATION_NAME, DEFAULT_ROOT_COMMON_NAME, DEFAULT_SIGNER_COMMON_NAME
 
-try:
-    #pylint: disable=no-name-in-module
-    from .version import VERSION, BUILD_DATE, COMMIT_ID
-except ImportError:
-    print("Version info not found!")
-    VERSION = "0.0.0"
-    COMMIT_ID = "N/A"
-    BUILD_DATE = "N/A"
+from . import __version__ as VERSION
+from . import BUILD_DATE, COMMIT_ID
 
 # Actions requiring signer CA certificate and signer CA key file arguments
 ACTIONS_REQUIRING_SIGNER_CA = ['create-from-csr', 'create-verification']
